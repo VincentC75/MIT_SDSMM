@@ -2,7 +2,10 @@
 title: "Probability"
 author: "Vincent Courtois"
 date: "14/07/2021"
-output: pdf_document
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
 ---
 
 ```{r setup, include=FALSE}
@@ -13,4 +16,15 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Probability
 
 Notes
+
+$Var(X) = E[X^2] - (E[X])^2$
+
+Law of iterated expectations:  
+$E[X] = E[E[X|\theta]]$  
+$Var(X) = E[Var(X|\theta)] + Var(E[X|\theta])$  
+
+
+Linear Least Mean Square Estimator:  
+$\hat{\theta}_{LLMS} = E[\theta] + \frac{cov(\theta,X)}{Var(X)}(X-E[X])$  
+
 
