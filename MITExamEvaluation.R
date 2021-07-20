@@ -2,7 +2,7 @@
  
 # 20% for the lecture exercises (divided equally among 21 (out of 23) lectures)
 
-le <- c(95, 93, 100, 100, 100, 100, 96, 100, 100, 93, 100, 100, 92, 95, 100, 92, 100, 85, 93)
+le <- c(95, 93, 100, 100, 100, 100, 96, 100, 100, 93, 100, 100, 92, 95, 100, 92, 100, 85, 93, 100)
 
 # 20% for the problem sets (divided equally among 9 (out of 10) problem sets)
 

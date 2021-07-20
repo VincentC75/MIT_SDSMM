@@ -3,9 +3,9 @@ title: "Probability"
 author: "Vincent Courtois"
 date: "14/07/2021"
 output:
-  pdf_document: default
   html_document:
     df_print: paged
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -17,24 +17,31 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Notes
 
-$Var(X) = E[X^2] - (E[X])^2$  
-$cov(\theta,X)=E[\theta.X]-E[\theta].E[X]$  
+$$Var(X) = E[X^2] - (E[X])^2$$  
+$$cov(\theta,X)=E[\theta.X]-E[\theta].E[X]$$  
 
-Var(A|B) = Var(A) + Var(B) + cov(A,B)
+$$Var(A|B) = Var(A) + Var(B) + cov(A,B)$$
 
-Law of iterated expectations:  
-$E[X] = E[E[X|\theta]]$  
-$Var(X) = E[Var(X|\theta)] + Var(E[X|\theta])$  
+The four versions of Baye's Rule:
+
+* $\Theta$ discrete, X discrete  
+  $$p_{\Theta|X}(\theta|x) = \frac{p_\Theta(\theta)p_{X|\Theta}(x|\theta)}{\sum_{\theta'} p_\Theta(\theta')p_{X|\Theta}(x|\theta')}$$
+* $\Theta$ discrete, X continuous
+  $$p_{\Theta|X}(\theta|x) = \frac{p_\Theta(\theta)f_{X|\Theta}(x|\theta)}{\sum_{\theta'} p_\Theta(\theta')f_{X|\Theta}(x|\theta')}$$
+* $\Theta$ continuous, X discrete
+  $$f_{\Theta|X}(\theta|x) = \frac{f_\Theta(\theta)p_{X|\Theta}(x|\theta)}{\int f_\Theta(\theta')p_{X|\Theta}(x|\theta')d\theta'}$$
+* $\Theta$ continuous, X continuous
+  $$f_{\Theta|X}(\theta|x) = \frac{f_\Theta(\theta)f_{X|\Theta}(x|\theta)}{\int f_\Theta(\theta')f_{X|\Theta}(x|\theta')d\theta'}$$
 
 
-Linear Least Mean Square Estimator:  
-$\hat{\theta}_{LLMS} = E[\theta] + \frac{cov(\theta,X)}{Var(X)}(X-E[X])$  
+Law of iterated expectations: $$E[X] = E[E[X|\theta]]$$  
+Law of total variance: $$Var(X) = E[Var(X|\theta)] + Var(E[X|\theta])$$
+Linear Least Mean Square Estimator: $$\hat{\theta}_{LLMS} = E[\theta] + \frac{cov(\theta,X)}{Var(X)}(X-E[X])$$  
 
-Weak Law of Large Numbers:  
-$\frac{X_1+...+X_n}{n} \to E[X], X_1,...,X_n i.i.d$
+Weak Law of Large Numbers: $$\frac{X_1+...+X_n}{n} \to E[X]$$, $X_1,...,X_n i.i.d$
 
 Markov inequality:  
-if $X \ge 0$ and $a>0$, then $P(X \ge A) \le \frac{E[X]}{a}$
+if $X \ge 0$ and $a>0$, then $$P(X \ge A) \le \frac{E[X]}{a}$$
 
 Chebyshev inequality:  
-X mean $\mu$ and variance $\sigma^2$, $P(|X-\mu| \ge c) \le \frac{\sigma^2}{c^2}$
+X mean $\mu$ and variance $\sigma^2$, $$P(|X-\mu| \ge c) \le \frac{\sigma^2}{c^2}$$
