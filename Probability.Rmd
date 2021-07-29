@@ -22,6 +22,8 @@ $$cov(\theta,X)=E[\theta.X]-E[\theta].E[X]$$
 
 $$Var(A|B) = Var(A) + Var(B) + cov(A,B)$$
 
+
+
 The four versions of Baye's Rule:
 
 * $\Theta$ discrete, X discrete  
@@ -45,3 +47,11 @@ if $X \ge 0$ and $a>0$, then $$P(X \ge A) \le \frac{E[X]}{a}$$
 
 Chebyshev inequality:  
 X mean $\mu$ and variance $\sigma^2$, $$P(|X-\mu| \ge c) \le \frac{\sigma^2}{c^2}$$
+
+Central Limit Theorem
+
+Jensen's inequality:
+if g is a convex function, $$g(E[X]) \le E[g(X)]$$
+
+Maximum Likelihood Estimation (MLE): Pick $theta$ that "makes data most likely".
+$$\hat{\theta}_{ML} = \underset{\theta}{\operatorname{arg max}} p_X(x;\theta)$$
