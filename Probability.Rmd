@@ -54,6 +54,14 @@ X mean $\mu$ and variance $\sigma^2$, $$P(|X-\mu| \ge c) \le \frac{\sigma^2}{c^2
 
 Central Limit Theorem
 
+$$ \sqrt{n} \frac{ \overline{X_n} - \mu} {\sigma} \longrightarrow_{n \to \infty} N(0,1) $$
+$$ \sqrt{n} (\overline{X_n} - \mu) \longrightarrow_{n \to \infty} N(0,\sigma^2) $$
+$$ \frac{ S_n - \mu} {\sqrt{n} \sigma } \longrightarrow_{n \to \infty} N(0,1) $$
+
+
+
+
+
 Jensen's inequality:
 if g is a convex function, $$g(E[X]) \le E[g(X)]$$
 
