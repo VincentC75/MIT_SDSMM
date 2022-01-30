@@ -23,6 +23,10 @@ $$cov(\theta,X)=E[\theta.X]-E[\theta].E[X]$$
 $$Var(A|B) = Var(A) + Var(B) + cov(A,B)$$
 
 
+Linear combination
+$$E[aX+b] = aE[X]+b$$
+$$\sigma(aX+b) = |a|\sigma(X)$$
+$$Var(aX+b) = a^2Var(X)$$
 
 The four versions of Baye's Rule:
 
@@ -55,3 +59,10 @@ if g is a convex function, $$g(E[X]) \le E[g(X)]$$
 
 Maximum Likelihood Estimation (MLE): Pick $theta$ that "makes data most likely".
 $$\hat{\theta}_{ML} = \underset{\theta}{\operatorname{arg max}} p_X(x;\theta)$$
+
+Gaussian/Normal distribution
+
+pdf $$f(\mu,\sigma^2)(x) = \frac{1}{\sigma \sqrt{2 \pi} } e^{\frac{(x - \mu)^2}{2 \sigma^2} }$$
+
+
+
