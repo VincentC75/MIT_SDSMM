@@ -15,4 +15,16 @@ knitr::opts_chunk$set(echo = TRUE)
 ## MIT Statistics and Data Science MicroMasters
 ## Statistics
 
-Delta Method
+Delta Method  
+Asymptotic variance of an estimator
+
+Confidence Intervals:
+
+* Conservative (worst variance possible)
+* Solve (Root for $ax^2+bx+c$ are $\frac{-b±\sqrt{b^2-4ac}}{2a}$)
+* Plugin (use point estimate in unknown variance)
+
+
+
+ total variation distance
+ Kullback-Leibler (KL) divergence
