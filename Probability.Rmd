@@ -68,9 +68,9 @@ if g is a convex function, $$g(E[X]) \le E[g(X)]$$
 Maximum Likelihood Estimation (MLE): Pick $theta$ that "makes data most likely".
 $$\hat{\theta}_{ML} = \underset{\theta}{\operatorname{arg max}} p_X(x;\theta)$$
 
-Gaussian/Normal distribution
-
-pdf $$f(\mu,\sigma^2)(x) = \frac{1}{\sigma \sqrt{2 \pi} } e^{\frac{(x - \mu)^2}{2 \sigma^2} }$$
+Distribution|pdf
+------------|---
+Gaussian/Normal|$$f(\mu,\sigma^2)(x) = \frac{1}{\sigma \sqrt{2 \pi} } e^{\frac{(x - \mu)^2}{2 \sigma^2} }$$
 
 
 
