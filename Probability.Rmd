@@ -17,7 +17,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Notes
 
-$$Var(X) = E[X^2] - (E[X])^2$$  
+$$Var(X) = E[X^2] - (E[X])^2$$
+
 $$cov(\theta,X)=E[\theta.X]-E[\theta].E[X]$$  
 
 $$Var(A|B) = Var(A) + Var(B) + cov(A,B)$$
@@ -40,8 +41,9 @@ The four versions of Baye's Rule:
   $$f_{\Theta|X}(\theta|x) = \frac{f_\Theta(\theta)f_{X|\Theta}(x|\theta)}{\int f_\Theta(\theta')f_{X|\Theta}(x|\theta')d\theta'}$$
 
 
-Law of iterated expectations: $$E[X] = E[E[X|\theta]]$$  
-Law of total variance: $$Var(X) = E[Var(X|\theta)] + Var(E[X|\theta])$$
+**Law of total probability**: S sample space divided in disjoint S1 and S2 $$P(A) = P(A|S1)P(S1)+P(A|S2)P(S2)$$
+**Law of iterated expectations**: $$E[X] = E[E[X|\theta]]$$  
+**Law of total variance**: $$Var(X) = E[Var(X|\theta)] + Var(E[X|\theta])$$
 Linear Least Mean Square Estimator: $$\hat{\theta}_{LLMS} = E[\theta] + \frac{cov(\theta,X)}{Var(X)}(X-E[X])$$  
 
 Weak Law of Large Numbers: $$\frac{X_1+...+X_n}{n} \to E[X]$$, $X_1,...,X_n i.i.d$
@@ -57,7 +59,7 @@ Central Limit Theorem
 $$ \sqrt{n} \frac{ \overline{X_n} - \mu} {\sigma} \longrightarrow_{n \to \infty} N(0,1) $$
 $$ \sqrt{n} (\overline{X_n} - \mu) \longrightarrow_{n \to \infty} N(0,\sigma^2) $$
 $$ \frac{ S_n - \mu} {\sqrt{n} \sigma } \longrightarrow_{n \to \infty} N(0,1) $$
-
+$$ \overline{X_n} = \frac{  \sum_{i=1}^{n} X_{i} }{n} \sim N(\mu,\frac{\sigma^2}{n})$$ 
 
 
 
@@ -65,7 +67,7 @@ $$ \frac{ S_n - \mu} {\sqrt{n} \sigma } \longrightarrow_{n \to \infty} N(0,1) $$
 Jensen's inequality:
 if g is a convex function, $$g(E[X]) \le E[g(X)]$$
 
-Maximum Likelihood Estimation (MLE): Pick $theta$ that "makes data most likely".
+Maximum Likelihood Estimation (MLE): Pick $\theta$ that "makes data most likely".
 $$\hat{\theta}_{ML} = \underset{\theta}{\operatorname{arg max}} p_X(x;\theta)$$
 
 Gaussian/Normal distribution
