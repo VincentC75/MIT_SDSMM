@@ -1,0 +1,31 @@
+---
+title: "Statistics"
+author: "Vincent Courtois"
+date: "20/02/2022"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## MIT Statistics and Data Science MicroMasters
+## Statistics
+
+Quadratic risk = Variance - $bias^2$
+Delta Method  
+Asymptotic variance of an estimator
+
+Confidence Intervals:
+
+* Conservative (worst variance possible)
+* Solve (Root for $ax^2+bx+c$ are $\frac{-b±\sqrt{b^2-4ac}}{2a}$)
+* Plugin (use point estimate in unknown variance)
+
+
+
+ total variation distance
+ Kullback-Leibler (KL) divergence
