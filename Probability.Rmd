@@ -58,15 +58,8 @@ Central Limit Theorem
 
 $$ \sqrt{n} \frac{ \overline{X_n} - \mu} {\sigma} \longrightarrow_{n \to \infty} N(0,1) $$
 $$ \sqrt{n} (\overline{X_n} - \mu) \longrightarrow_{n \to \infty} N(0,\sigma^2) $$
-<<<<<<< HEAD
-$$ \frac{ S_n - \mu} {\sqrt{n} \sigma } \longrightarrow_{n \to \infty} N(0,1) $$
 $$ \overline{X_n} = \frac{  \sum_{i=1}^{n} X_{i} }{n} \sim N(\mu,\frac{\sigma^2}{n})$$ 
-=======
 $$ \frac{ S_n - n? \mu} {\sqrt{n} \sigma } \longrightarrow_{n \to \infty} N(0,1) $$
-
->>>>>>> 6b0177a2dede0ffd4727b632ca752191e7ffb0ed
-
-
 
 
 Jensen's inequality:
