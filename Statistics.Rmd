@@ -22,10 +22,15 @@ Asymptotic variance of an estimator
 Confidence Intervals:
 
 * Conservative (worst variance possible)
-* Solve (Root for $ax^2+bx+c$ are $\frac{-b±\sqrt{b^2-4ac}}{2a}$)
+* Solve (Root for $ax^2+bx+c$ are $\frac{-b±\sqrt{b^2-4ac}}{2a}$
 * Plugin (use point estimate in unknown variance)
 
 
 
  total variation distance
- Kullback-Leibler (KL) divergence
+ Kullback-Leibler (KL) divergence:
+
+* $KL(P_{\theta},P_{\theta'}) = \sum_{k \in E}p_\theta(k)log(\frac{p_\theta(k)}{p_\theta'(k)})$ if E is discrete
+* $KL(P_{\theta},P_{\theta'}) = \int_Ef_\theta(x)log(\frac{f_\theta(x)}{f_\theta'(x)})dx$ if E is continuous
+
+
