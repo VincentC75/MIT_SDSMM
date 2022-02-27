@@ -12,6 +12,7 @@ Markdown References:
 * [Markdown latex 2](https://rpruim.github.io/s341/S19/from-class/MathinRmd.html)
 * [Latex Mathematical symbols](https://www.caam.rice.edu/~heinken/latex/symbols.pdf)
 
-Graphical Calculator:
 
-[desmos.com](https://www.desmos.com/calculator)
+Math:
+* [Graphical Calculator](https://www.desmos.com/calculator)
+* [Derive](https://www.dcode.fr/derivee)
