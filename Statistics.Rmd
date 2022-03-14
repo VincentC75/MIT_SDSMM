@@ -38,3 +38,16 @@ Confidence Intervals:
 * $KL(P_{\theta},P_{\theta'}) = \int_Ef_\theta(x)log(\frac{f_\theta(x)}{f_\theta'(x)})dx$ if E is continuous
 
 A function is concave if its second derivative is negative.
+
+**MLE Estimator**
+likelihood = product of likelihood of all observations.
+maximize log likelihood:
+
+* check function is concave (second derivative is negative)
+* derive and set to 0 => solve for MLE estimator.
+
+**Fisher Information**:
+
+$l(\theta)$ = log likelihood for **one** observation
+$I(\theta) = Var[l'(\theta)] = -E[l''(\theta)]$
+
