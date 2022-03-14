@@ -28,6 +28,14 @@ $$E[aX+b] = aE[X]+b$$
 $$\sigma(aX+b) = |a|\sigma(X)$$
 $$Var(aX+b) = a^2Var(X)$$
 
+$$Cov(X,Y) = E((X-E(X))-(Y-E[Y])) = E[XY]-E[X]E[Y]$$
+
+Eigen Values from Hessian:
+
+* somme diagonale Essian = somme eigenvalues
+* determinant Hessian = produit eigenvalues
+
+
 The four versions of Baye's Rule:
 
 * $\Theta$ discrete, X discrete  
@@ -68,14 +76,15 @@ if g is a convex function, $$g(E[X]) \le E[g(X)]$$
 Maximum Likelihood Estimation (MLE): Pick $theta$ that "makes data most likely".
 $$\hat{\theta}_{ML} = \underset{\theta}{\operatorname{arg max}} p_X(x;\theta)$$
 
-Distribution|pmf/pdf|cdf|mean|variance|
-:-----------|:---|:---|:--------|:----|
-Bernouilli|$f_p(k)=p^k (1-p)^{1-k}$||$p$|$p(1-p)$
-Binomial|$f_{n,p}(k)=\frac{n!}{k!(n-k)!}p^k(1-p)^{k-1}$||$np$|$np(1-p)$
-Geometric|$f_p(k)=p(1-p)^{k-1}$|$1-(1-p)^k$|$\frac{1}{p}$|$\frac{1-p}{p^2}$
-Poisson|$f_{\lambda}(k)=\frac{\lambda^ke^{-\lambda}}{k!}$||$\lambda$|$\lambda$
-Exponential|$f_{\lambda}(x)=\lambda e^{-\lambda x}$|$1-e^{-\lambda x}$|$\frac{1}{\lambda}$|$\frac{1}{\lambda^2}$
-Gaussian/Normal|$f_{(\mu,\sigma^2)}(x) = \frac{1}{\sigma \sqrt{2 \pi} } e^{-\frac{(x - \mu)^2}{2 \sigma^2} }$||$\mu$|$\sigma^2$
+Distribution|support|pmf/pdf|cdf|mean|variance|
+:-----------|--|----|-------|---|----|--------|
+Bernouilli|$k\in \{0,1\}$|$f_p(k)=p^k (1-p)^{1-k}$||$p$|$p(1-p)$
+Binomial|$k\in \{0,1,...,n\}$|$f_{n,p}(k)=\frac{n!}{k!(n-k)!}p^k(1-p)^{k-1}$||$np$|$np(1-p)$
+Geometric|$k\in \{1,2,,...,n\}$|$f_p(k)=p(1-p)^{k-1}$|$1-(1-p)^k$|$\frac{1}{p}$|$\frac{1-p}{p^2}$
+Poisson|$k\in \mathbb{N}_0$|$f_{\lambda}(k)=\frac{\lambda^ke^{-\lambda}}{k!}$||$\lambda$|$\lambda$
+Uniform|[a,b]|$1/(b-a)$|$(x-a)/(b-a)$|$1/2(a+b)$|$1/12(b-a)^2$
+Exponential|$x\in[0,\infty)$|$f_{\lambda}(x)=\lambda e^{-\lambda x}$|$1-e^{-\lambda x}$|$\frac{1}{\lambda}$|$\frac{1}{\lambda^2}$
+Gaussian/Normal|$x\in \mathbb{R}$|$f_{(\mu,\sigma^2)}(x) = \frac{1}{\sigma \sqrt{2 \pi} } e^{-\frac{(x - \mu)^2}{2 \sigma^2} }$||$\mu$|$\sigma^2$
 
 
 
