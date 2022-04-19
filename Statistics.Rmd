@@ -51,3 +51,9 @@ maximize log likelihood:
 $l(\theta)$ = log likelihood for **one** observation
 $I(\theta) = Var[l'(\theta)] = -E[l''(\theta)]$
 
+* Parametric Hypthesis testing
+
+Wald test (asymptotic): $W = \frac{\hat{\theta} - \theta_0}{\sqrt{\widehat{var(\hat{\theta})}}} \rightarrow N(0,1)$
+
+Student's T test (non asymptotic): $T = \sqrt{n} \frac{\bar{X_n} - \mu_0}{S_n} \sim t_{n-1}$
+

@@ -85,6 +85,7 @@ Poisson|$k\in \mathbb{N}_0$|$f_{\lambda}(k)=\frac{\lambda^ke^{-\lambda}}{k!}$||$
 Uniform|[a,b]|$1/(b-a)$|$(x-a)/(b-a)$|$1/2(a+b)$|$1/12(b-a)^2$
 Exponential|$x\in[0,\infty)$|$f_{\lambda}(x)=\lambda e^{-\lambda x}$|$1-e^{-\lambda x}$|$\frac{1}{\lambda}$|$\frac{1}{\lambda^2}$
 Gaussian/Normal|$x\in \mathbb{R}$|$f_{(\mu,\sigma^2)}(x) = \frac{1}{\sigma \sqrt{2 \pi} } e^{-\frac{(x - \mu)^2}{2 \sigma^2} }$||$\mu$|$\sigma^2$
+Gamma||||||
 
 
 

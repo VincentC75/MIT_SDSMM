@@ -1,14 +1,21 @@
 # Compute progress for probability course
  
-# 20% for the lecture exercises (divided equally among 21 (out of 23) lectures)
+# 20% for the lecture exercises (divided equally among 20 (out of 23) lectures)
 
-le <- c(95, 93, 100, 100, 100, 100, 96, 100, 100, 93, 100, 100, 92, 95, 100, 92, 100, 85, 93, 100, 92, 100)
+le <- c(100, 92, 92, 96, 87, 100, 100, 95, 100, 100, 98, 100, 100, 100, 90, 88, 94, 96, 97, 0)
 
-# 20% for the problem sets (divided equally among 9 (out of 10) problem sets)
+# 20% for the homeworks (divided equally among 10 (out of 12) problem sets)
 
-ps <- c(100, 100, 100, 90, 97, 100, 100, 100,97)
+hw <- c(100, 97, 94, 97, 100, 100, 84, 100, 100, 98)
 
-# Final
+# 18% for midterm1
+
+mt1 <- 90
+
+# 18% for midterm2
+
+
+# Modterm 2
 q1a <- 0 
 q1b1 <- 0
 q1b2 <- 0
@@ -25,8 +32,12 @@ q5a <- 0
 q5b <- 0
 q5c <- 0
 
-final <- (q1a + q1b1 + q1b2 + q1c + q2a + q2b + q2c + q3 + q4a1 + q4a2 + q4b1 + q4b2 + q5a + q5b + q5c) * 18 / 17.5
 
-current = ((sum(le) / 21) * 0.2) + ((sum(ps) / 9) * 0.2) + 91 * 0.18 + 100 * 0.18 + 100 * final * 0.24
+mt2 <- 0
+
+# 24% for final
+final <- 0
+
+current = ((sum(le) / 20) * 0.2) + ((sum(hw) / 10) * 0.2) + mt1 * 0.18 + mt2 * 0.18 + final * 0.24
 
 print(current)
