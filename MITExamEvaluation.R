@@ -15,7 +15,7 @@ mt1 <- 90
 # 18% for midterm2
 
 
-# Modterm 2
+# Midterm 2
 q1a <- 0 
 q1b1 <- 0
 q1b2 <- 0
