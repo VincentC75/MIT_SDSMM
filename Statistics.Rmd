@@ -15,8 +15,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ## MIT Statistics and Data Science MicroMasters
 ## Statistics
 
-Quadratic risk = Variance - $bias^2$
-Delta Method  
+$Quadratic risk = Variance - bias^2$  
+Delta Method
+Let $Z_n$ be a sequence of random variables such that $\sqrt{n}(Z_n-\theta) \lim_{n \to \infty} N(0,\sigma^2)$
+g continuously differentiable at $ \theta$
+$\sqrt{n}(g(Z_n)-g(\theta)) \lim_{n \to \infty} N(0,g'(\theta)^2\sigma^2)$
+
+
 Asymptotic variance of an estimator
 
 Confidence Intervals:
@@ -25,7 +30,14 @@ Confidence Intervals:
 * Solve (Root for $ax^2+bx+c$ are $\frac{-b±\sqrt{b^2-4ac}}{2a}$
 * Plugin (use point estimate in unknown variance)
 
+Hypothesis testing
 
+Methods of estimation:
+  - Maximum likelihood exstimator
+  - Method of moments
+  - M-estimators
+
+Distance measure / probability distributions
 
  Total Variation Distance:
  
@@ -46,6 +58,8 @@ maximize log likelihood:
 * check function is concave (second derivative is negative)
 * derive and set to 0 => solve for MLE estimator.
 
+**EM algorithm** 
+
 **Fisher Information**:
 
 $l(\theta)$ = log likelihood for **one** observation
@@ -56,4 +70,15 @@ $I(\theta) = Var[l'(\theta)] = -E[l''(\theta)]$
 Wald test (asymptotic): $W = \frac{\hat{\theta} - \theta_0}{\sqrt{\widehat{var(\hat{\theta})}}} \rightarrow N(0,1)$
 
 Student's T test (non asymptotic): $T = \sqrt{n} \frac{\bar{X_n} - \mu_0}{S_n} \sim t_{n-1}$
+
+Cochrans's theorem: for iid Gaussian random variables with mean $\mu$ and varaince $\sigma^2$, the sample mean and the sample variance are independent.
+
+U standard Gaussian RV, V $\chi^2$ RV with d degrees of freedom. If U and V are independent, $\sqrt{d}\frac{U}{\sqrt{V}}$ is a Student t random variable with d degrees of freedom.
+
+$\chi^2$ test => used to check wether a random variable has any distribution over a finite space E.
+
+likelihood ratio => used to obtain test with *asymptotic* levels.
+
+
+
 
