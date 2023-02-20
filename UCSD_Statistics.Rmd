@@ -1,0 +1,15 @@
+---
+title: "USCD Statistics notes"
+author: "Vincent Courtois"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Covariance
+$cov(X,Y) = E[(X-E[X]).(Y-E[Y])] = E[XY] - E[X].E[Y]$
