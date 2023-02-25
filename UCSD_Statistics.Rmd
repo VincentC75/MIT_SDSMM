@@ -18,6 +18,7 @@ $\sum_{0}^{+\infty} aq^n = \frac{a}{1-q}, q<1$
 ### Covariance and Pearson's correlation coefficient
 $cov(X,Y) = E[(X-E[X]).(Y-E[Y])] = E[XY] - E[X].E[Y]$  
 $\rho_{X,Y} = \frac{cov(X,Y)}{\sigma_X\sigma_Y}$  
+$V(aX+bY) = a^2V(X)+b^2V(Y)+2ab.cov(X,Y)$  
 
 ### Distributions
 Distribution|support|pmf/pdf|cdf|mean|variance|
