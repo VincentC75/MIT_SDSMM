@@ -10,15 +10,39 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+### Sets
+De Morgan's laws: $(A \cup B)^c = A^c \cap B^c$,
+$(A \cap B)^c = A^c \cup B^c$  
+inclusion-exclusion:  
+$P(A \cup B) = P(A) + P(B) - P(A \cap B)$  
+$P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C) -P(B \cap C) + P(A \cap B \cap C)$  
+$P(\cup_{i=1}^nAi) = \sum_i P(A_i) - \sum_{i<j}P(A_i \cap A_j) + \sum_{i<j<k}P(A_i \cap A_j \cap A_k)-...+(-1)^{n+1}P(A_1 \cap ... \cap A_n)$  
+$A.(B\cup C)= A.B \cup A.C$  
+$A.(B\cap C)= A.B \cap A.C$  
+$A.(B-C)= A.B - A.C$  
+difference: $A - B = A \cap B^c$  
+symmetric difference: $A \Delta B = (A-B) \cup (B-A)$, elements exactly in one set, not both  
+Cartesian product: AxB = {(a,b) | a in A, b in B }  
+Cartesian power: AxAx...xA = $A^n$
+Power set: collection of all subsets of S, 1-1 relation with $\{0,1\}^{|S|}$  
+functions from A to B: $|B|^{|A|}$  
+
 
 ### Geometric Series
 
 $\sum_{0}^{+\infty} aq^n = \frac{a}{1-q}, q<1$
 
+### Taylor Series
+$e^{-1}=1-\frac{1}{1!}+\frac{1}{2!}-\frac{1}{3!}+...$  
+$e^x = \sum_{n=0}^{\infty}\frac{x^n}{n!}$
+
 ### Covariance and Pearson's correlation coefficient
 $cov(X,Y) = E[(X-E[X]).(Y-E[Y])] = E[XY] - E[X].E[Y]$  
 $\rho_{X,Y} = \frac{cov(X,Y)}{\sigma_X\sigma_Y}$  
 $V(aX+bY) = a^2V(X)+b^2V(Y)+2ab.cov(X,Y)$  
+
+### Central Limit Theorem
+$\bar{X}\sim\mathcal{N}(\mu,\frac{\sigma^2}{n})$
 
 ### Distributions
 Distribution|support|pmf/pdf|cdf|mean|variance|
