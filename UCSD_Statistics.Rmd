@@ -42,12 +42,24 @@ ways to write n as a sum of any number of positive integers: $2^{n-1}$
 ways to write n as a sum of k non negative integers, when order matters: $\binom{n+k-1}{k-1}$  
 
 ### Series
-$\sum_{0}^{+\infty} aq^n = \frac{a}{1-q}, q<1$  
-$e^x = \sum_{n=0}^{\infty}\frac{x^n}{n!}$  
+Geometric: $\sum_{0}^{+\infty} aq^n = \frac{a}{1-q}, q<1$  
+Maclaurin for exponential : $e^x = \sum_{n=0}^{\infty}\frac{x^n}{n!}$  
 
 ### Probability
 Conditional probability: $P(A|B) = \frac{P(A\cap B)}{P(B)}$  
 Independence: $P(A\cap B) = P(A).P(B)$  
+Total probability: $P(A)=P(B).P(A|B)+P(B^c).P(A|B^c)$ (extends to partition of $\Omega$)  
+Baye's Rule: $P(A|B) = \frac{P(A).P(B|A)}{P(B)}$    
+
+### Expectation and Variance
+Linearity of expectation: $E(aX+b)=aE(X)+b$  
+$Y=g(X), E(Y)=\sum_xg(x)p_x$  
+$V(X)=E[(X-\mu)^2] = E[X^2] - (E[X])^2$  
+$V(aX+b) = a^2V(X)$  
+
+### Joint distribution
+Marginal: $p(x) = \sum_yp(x,y)$  
+Independence: $p(x,y) = p(x).p(y)$. rows and columns proportional in joint probability matrix  
 
 ### Covariance and Pearson's correlation coefficient
 $cov(X,Y) = E[(X-E[X]).(Y-E[Y])] = E[XY] - E[X].E[Y]$  
