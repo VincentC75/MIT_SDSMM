@@ -46,6 +46,7 @@ Geometric: $\sum_{0}^{+\infty} aq^n = \frac{a}{1-q}, q<1$
 Taylor expension, Maclaurin for exponential : $e^x = \sum_{n=0}^{\infty}\frac{x^n}{n!}$  
 Euler number: $\lim_{n\to\infty} (1 + \frac{1}{n})^n = e$  
 Harmonic Sum: $\frac{1}{1}+\frac{1}{2}+...+\frac{1}{n} \to ln(n)+0.5777$  
+$\frac{1}{1^2}+\frac{1}{2^2}+...+\frac{1}{(n-1)^2}+\frac{1}{n^2} \to \frac{\pi^2}{6}$
 
 ### Probability
 Conditional probability: $P(A|B) = \frac{P(A\cap B)}{P(B)}$  
