@@ -28,9 +28,9 @@ Power set: collection of all subsets of S, 1-1 relation with $\{0,1\}^{|S|}$
 functions from A to B: $|B|^{|A|}$  
 
 ### Permutations and combinations
-Permutations: $n!$, Partial permutations: $\frac{n!}{(n-k)!}$, Combinations: $\frac{n!}{k!(n-k)!}$ 
-Stirlin's approximation: $n! \sim \sqrt{2\pi n}(\frac{n}{e})^n$  
-$\binom{n}{k} = \frac{n}{k} \binom{n-1}{k-1}$  
+Permutations: $n!$, Partial permutations: $\frac{n!}{(n-k)!}$, Combinations: $\frac{n!}{k!(n-k)!}$  
+Stirling's approximation: $n! \sim \sqrt{2\pi n}(\frac{n}{e})^n$  
+$\binom{n}{k} = \frac{n!}{k!(n-k)!}= \frac{n}{k} \binom{n-1}{k-1}$  
 $\sum_{i=0}^n \binom{n}{k} = 2^n$  
 Pascal's identity: $\binom{n+1}{k}=\binom{n}{k}+\binom{n}{k-1}$  
 Binomial theorem: $(a+b)^n = \sum_{i=0}^n \binom{n}{i}a^{n-i}b^i$  
@@ -41,9 +41,11 @@ ways to write n as a sum of k positive integers, when order matters: $\binom{n-1
 ways to write n as a sum of any number of positive integers: $2^{n-1}$  
 ways to write n as a sum of k non negative integers, when order matters: $\binom{n+k-1}{k-1}$  
 
-### Series
+### Series and limits
 Geometric: $\sum_{0}^{+\infty} aq^n = \frac{a}{1-q}, q<1$  
-Maclaurin for exponential : $e^x = \sum_{n=0}^{\infty}\frac{x^n}{n!}$  
+Taylor expension, Maclaurin for exponential : $e^x = \sum_{n=0}^{\infty}\frac{x^n}{n!}$  
+Euler number: $\lim_{n\to\infty} (1 + \frac{1}{n})^n = e$  
+Harmonic Sum: $\frac{1}{1}+\frac{1}{2}+...+\frac{1}{n} \to ln(n)+0.5777$  
 
 ### Probability
 Conditional probability: $P(A|B) = \frac{P(A\cap B)}{P(B)}$  
@@ -75,11 +77,16 @@ $\bar{X}\sim\mathcal{N}(\mu,\frac{\sigma^2}{n})$
 Distribution|support|pmf/pdf|cdf|mean|variance|
 :-----------|--|----|-------|---|----|--------|
 Bernouilli|$k\in \{0,1\}$|$f_p(k)=p^k (1-p)^{1-k}$||$p$|$p(1-p)$
-Binomial|$k\in \{0,1,...,n\}$|$f_{n,p}(k)=\frac{n!}{k!(n-k)!}p^k(1-p)^{k-1}$||$np$|$np(1-p)$
+Binomial|$k\in \{0,1,...,n\}$|$f_{n,p}(k)=\binom{n}{k}p^k(1-p)^{n-k}$||$np$|$np(1-p)$
 Geometric|$k\in \{1,2,,...,n\}$|$f_p(k)=p(1-p)^{k-1}$|$1-(1-p)^k$|$\frac{1}{p}$|$\frac{1-p}{p^2}$
-Poisson|$k\in \mathbb{N}_0$|$f_{\lambda}(k)=\frac{\lambda^ke^{-\lambda}}{k!}$||$\lambda$|$\lambda$
+Poisson|$k \geq 0, \lambda \geq 0$|$f_{\lambda}(k)=\frac{\lambda^ke^{-\lambda}}{k!}$||$\lambda$|$\lambda$
 Uniform|[a,b]|$1/(b-a)$|$\frac{(x-a)}{(b-a)}$|$\frac{(a+b)}{2}$|$\frac{(b-a)^2}{12}$
 Exponential|$x\in[0,\infty)$|$f_{\lambda}(x)=\lambda e^{-\lambda x}$|$1-e^{-\lambda x}$|$\frac{1}{\lambda}$|$\frac{1}{\lambda^2}$
 Gaussian/Normal|$x\in \mathbb{R}$|$f_{(\mu,\sigma^2)}(x) = \frac{1}{\sigma \sqrt{2 \pi} } e^{-\frac{(x - \mu)^2}{2 \sigma^2} }$||$\mu$|$\sigma^2$
 
-geometric and exponential distributions are memoryless.
+geometric and exponential distributions are memoryless.  
+Poisson binomial, extends binomial, $p_i$ different but known for each trial. $E(X)=\sum_ip_i, V(X)=\sum_ip_i(1-p_i)$  
+Poisson approximates Binomial for $\lambda=np, n\gg1 \gg p$  
+Binomial: n Bernoulli trials, count successes.  
+Geometric: Number of Bernoulli trials until first success. Any discrete memoryless distribution is geometric.  
+Negative binomial distribution: Number of Bernouilli trials until r's success $\binom{n-1}{r-1}p^r(1-p)^{n-r}$
