@@ -71,6 +71,9 @@ $\rho_{aX+b,cY+d} = sign(ac).\rho_{X,Y}$
 Cauchy-Schwartz inequality: $|E(XY)| \leq \sqrt{E(X^2)}.\sqrt{E(Y^2)}, |\sigma_{x,Y}| \leq \sigma_X.\sigma_Y, |\rho_{X,Y}| \leq 1$  
 Independent implies uncorrelated. Uncorrelated does not imply independent.  
 
+### Functions of Random variables
+$Y=g(X), h(y)=g^-1(y), f_Y(y)=f_X(h(y)).|h'(y)| = \frac{1}{|g'(x)|}f_X(x)|_{y=g(x)}$
+
 ### Central Limit Theorem
 $\bar{X}\sim\mathcal{N}(\mu,\frac{\sigma^2}{n})$
 
@@ -81,13 +84,25 @@ Bernouilli|$k\in \{0,1\}$|$f_p(k)=p^k (1-p)^{1-k}$||$p$|$p(1-p)$
 Binomial|$k\in \{0,1,...,n\}$|$f_{n,p}(k)=\binom{n}{k}p^k(1-p)^{n-k}$||$np$|$np(1-p)$
 Geometric|$k\in \{1,2,,...,n\}$|$f_p(k)=p(1-p)^{k-1}$|$1-(1-p)^k$|$\frac{1}{p}$|$\frac{1-p}{p^2}$
 Poisson|$k \geq 0, \lambda \geq 0$|$f_{\lambda}(k)=\frac{\lambda^ke^{-\lambda}}{k!}$||$\lambda$|$\lambda$
-Uniform|[a,b]|$1/(b-a)$|$\frac{(x-a)}{(b-a)}$|$\frac{(a+b)}{2}$|$\frac{(b-a)^2}{12}$
+Uniform|[a,b]|$\frac{1}{b-a}$|$\frac{x-a}{b-a}$|$\frac{a+b}{2}$|$\frac{(b-a)^2}{12}$
 Exponential|$x\in[0,\infty)$|$f_{\lambda}(x)=\lambda e^{-\lambda x}$|$1-e^{-\lambda x}$|$\frac{1}{\lambda}$|$\frac{1}{\lambda^2}$
-Gaussian/Normal|$x\in \mathbb{R}$|$f_{(\mu,\sigma^2)}(x) = \frac{1}{\sigma \sqrt{2 \pi} } e^{-\frac{(x - \mu)^2}{2 \sigma^2} }$||$\mu$|$\sigma^2$
+Gaussian/Normal|$x\in \mathbb{R}$|$f_{(\mu,\sigma^2)}(x) = \frac{1}{\sigma \sqrt{2 \pi} } e^{-\frac{(x - \mu)^2}{2 \sigma^2} }$|$\Phi(x)$|$\mu$|$\sigma^2$
 
-geometric and exponential distributions are memoryless.  
+geometric and exponential distributions are memoryless. exponential extends geometric to continuous values.  
 Poisson binomial, extends binomial, $p_i$ different but known for each trial. $E(X)=\sum_ip_i, V(X)=\sum_ip_i(1-p_i)$  
 Poisson approximates Binomial for $\lambda=np, n\gg1 \gg p$  
 Binomial: n Bernoulli trials, count successes.  
 Geometric: Number of Bernoulli trials until first success. Any discrete memoryless distribution is geometric.  
-Negative binomial distribution: Number of Bernouilli trials until r's success $\binom{n-1}{r-1}p^r(1-p)^{n-r}$
+Negative binomial distribution: Number of Bernouilli trials until r's success $\binom{n-1}{r-1}p^r(1-p)^{n-r}$  
+normal distribution approximates the binomial distribution. Linear transformations of normal distributions are normal.  
+$X \sim N(\mu,\sigma^2), Y=aX+b, Y \sim N(a\mu+b,a^2\sigma^2), Z=\frac{X-\mu}{\sigma} \sim N(0,1), 68, 95, 99.7 rule$  
+Normal approximation of binomial: $X \sim B_{n,p} \sim N(np,np(1-p))$  
+
+### Inequalities
+
+Markov's: $X\geq0, \forall \alpha \geq 1, P(X \geq \alpha \mu) \leq \frac{1}{\alpha}, \forall a \geq \mu, P(X \geq a) \leq \frac{\mu}{a}$. Decreases linearly  
+Chebychev's: $\forall X \forall \alpha \geq1, P(|X-\mu|\geq\alpha\sigma) \leq \frac{1}{\sigma^2}, \forall a \geq \sigma, P(|X-\mu|) \geq a) \leq \frac{\sigma^2}{a^2}$. Decreases quadratically  
+
+
+### Integration by parts
+$\int u.dv = uv - \int v.du$
