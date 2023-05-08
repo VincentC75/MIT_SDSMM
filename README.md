@@ -18,3 +18,8 @@ Math:
 * [Graphical Calculator](https://www.desmos.com/calculator)
 * [Derive](https://www.dcode.fr/derivee)
 * [Probability Book](https://bookdown.org/probability/beta/)
+
+Review Material:
+
+* [MIT 18.05 Spring 2014 Introduction to Probability and Statistics](https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2014/pages/syllabus/)  
+* [MIT 6.041 Fall 2010 Probabilistic Systems Analysis and Applied Probability](https://ocw.mit.edu/courses/6-041-probabilistic-systems-analysis-and-applied-probability-fall-2010/pages/syllabus/)  
