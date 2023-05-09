@@ -50,12 +50,15 @@ Harmonic Sum: $\frac{1}{1}+\frac{1}{2}+...+\frac{1}{n} \to ln(n)+0.5777$
 $\frac{1}{1^2}+\frac{1}{2^2}+...+\frac{1}{(n-1)^2}+\frac{1}{n^2} \to \frac{\pi^2}{6}$
 
 **Probability**  
-Conditional probability: $P(A|B) = \frac{P(A\cap B)}{P(B)}$  
-Independence: $P(A\cap B) = P(A).P(B)$  
+3 Axioms of probability: Non negativity ($P(A)\ge0$), Additivity ($P(A\cap B) = P(A)+P(B)$ if A,B disjoint), Normalization ($P(\Omega)=1$)  
 Total probability: $P(A)=P(B).P(A|B)+P(B^c).P(A|B^c)$ (extends to partition of $\Omega$)  
+Multiplication rule: $P(A\cap B)=P(A).P(B|A) = P(B).P(A|B)$ (extends to more than 2)  
+Conditional probability: $P(A|B) = \frac{P(A\cap B)}{P(B)}$  
 Baye's Rule: $P(A|B) = \frac{P(A).P(B|A)}{P(B)}$    
 Marginal: $p(x) = \sum_yp(x,y)$  
-Independence: $p(x,y) = p(x).p(y)$. rows and columns proportional in joint probability matrix  
+Independence: $P(A\cap B) = P(A).P(B)$. rows and columns proportional in joint probability matrix  
+Independence of collection of events: $P(A_1\cap A_2 ...\cap A_m)=P(A_1).p(A_2)...P(A_m)$ for any subset of the collection.   
+Independence does not imply conditional independence. Pairwise independence does not imply independence of collection.  
 
 **Expectation and Variance**  
 Linearity of expectation: $E(aX+b)=aE(X)+b$  
