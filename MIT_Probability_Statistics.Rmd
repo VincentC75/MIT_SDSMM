@@ -1,0 +1,141 @@
+---
+#title: "USCD Statistics notes"
+#author: "Vincent Courtois"
+geometry: "left=0.5cm,right=0.5cm,top=1cm,bottom=0.5cm"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+**Sets**  
+$A \cap (B \cup C) = (A \cap B) \cup (A \cap C), A \cup (B \cap C) = (A \cup B) \cup (A \cap C)$  
+De Morgan's laws: $(A \cup B)^c = A^c \cap B^c$,
+$(A \cap B)^c = A^c \cup B^c, (\cap_nS_n)^c=\cup_nS_n^c, (\cup_nS_n)^c=\cap_nS_n^c$  
+Bonferroni's inequality: $P(A_1\cap A_2)\ge P(A_1) + P(A_2) -1, P(A_1\cap A_2 ...\cap A_n)\ge P(A_1) + P(A_2) + ... + P(A_n) -(n-1)$  
+inclusion-exclusion:  
+$P(A \cup B) = P(A) + P(B) - P(A \cap B)$  
+$P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C) -P(B \cap C) + P(A \cap B \cap C)$  
+$P(\cup_{i=1}^nAi) = \sum_i P(A_i) - \sum_{i<j}P(A_i \cap A_j) + \sum_{i<j<k}P(A_i \cap A_j \cap A_k)-...+(-1)^{n+1}P(A_1 \cap ... \cap A_n)$  
+$A.(B\cup C)= A.B \cup A.C$  
+$A.(B\cap C)= A.B \cap A.C$  
+$A.(B-C)= A.B - A.C$  
+difference: $A - B = A \cap B^c$  
+symmetric difference: $A \Delta B = (A-B) \cup (B-A)$, elements exactly in one set, not both  
+Cartesian product: AxB = {(a,b) | a in A, b in B }  
+Cartesian power: AxAx...xA = $A^n$
+Power set: collection of all subsets of S, 1-1 relation with $\{0,1\}^{|S|}$  
+functions from A to B: $|B|^{|A|}$  
+
+**Permutations and combinations**  
+Permutations: $n!$, Partial permutations: $\frac{n!}{(n-k)!}$, Combinations: $\frac{n!}{k!(n-k)!}$  
+Stirling's approximation: $n! \sim \sqrt{2\pi n}(\frac{n}{e})^n$  
+$\binom{n}{k} = \frac{n!}{k!(n-k)!}= \frac{n}{k} \binom{n-1}{k-1}$  
+$\sum_{i=0}^n \binom{n}{k} = 2^n$  
+Pascal's identity: $\binom{n+1}{k}=\binom{n}{k}+\binom{n}{k-1}$  
+Binomial theorem: $(a+b)^n = \sum_{i=0}^n \binom{n}{i}a^{n-i}b^i$  
+Multinomial coefficient: $\binom{n}{k_1,k_2,k_3} = \frac{n!}{k_1!k_2!k_3!}$  
+Multinomial theorem! $(a_1+a_2+...+a_m)^n = \sum_{k_1+k_2+...+k_m=n}\binom{n}{k_1,k_2,...,k_m}\prod_{t=1}^{m}a_t^{k_t}$  
+$m^n = (1+1+...+1)^n=\sum_{k_1+...+k_m=n}\binom{n}{k_1,k_2,...,k_m}$  
+ways to write n as a sum of k positive integers, when order matters: $\binom{n-1}{k-1}$  
+ways to write n as a sum of any number of positive integers: $2^{n-1}$  
+ways to write n as a sum of k non negative integers, when order matters: $\binom{n+k-1}{k-1}$  
+
+**Series and limits**  
+infinite series $\sum_{i=0}^\infty a_i$ converges if $\sum_{i=0}^\infty |a_i| < \infty$. In that case the order of terms can be permuted.  
+Geometric: $\sum_{0}^{+\infty} aq^n = \frac{a}{1-q}, q<1$  
+Taylor expension, Maclaurin for exponential : $e^x = \sum_{n=0}^{\infty}\frac{x^n}{n!}$  
+Euler number: $\lim_{n\to\infty} (1 + \frac{1}{n})^n = e$  
+Harmonic Sum: $\frac{1}{1}+\frac{1}{2}+...+\frac{1}{n} \to ln(n)+0.5777$  
+$\frac{1}{1^2}+\frac{1}{2^2}+...+\frac{1}{(n-1)^2}+\frac{1}{n^2} \to \frac{\pi^2}{6}$
+
+**Probability**  
+Conditional probability: $P(A|B) = \frac{P(A\cap B)}{P(B)}$  
+Independence: $P(A\cap B) = P(A).P(B)$  
+Total probability: $P(A)=P(B).P(A|B)+P(B^c).P(A|B^c)$ (extends to partition of $\Omega$)  
+Baye's Rule: $P(A|B) = \frac{P(A).P(B|A)}{P(B)}$    
+Marginal: $p(x) = \sum_yp(x,y)$  
+Independence: $p(x,y) = p(x).p(y)$. rows and columns proportional in joint probability matrix  
+
+**Expectation and Variance**  
+Linearity of expectation: $E(aX+b)=aE(X)+b$  
+$Y=g(X), E(Y)=\sum_xg(x)p_x$  
+$V(X)=E[(X-\mu)^2] = E[X^2] - (E[X])^2$  
+$V(aX+b) = a^2V(X)$  
+$E(X+Y)=E(X)+E(Y), usually, E(XY) \neq E(X).E(Y)$
+$V(aX+bY) = a^2V(X)+b^2V(Y)+2ab.cov(X,Y)$  
+
+**Covariance and Pearson's correlation coefficient**  
+$cov(X,Y) = E[(X-E[X]).(Y-E[Y])] = E[XY] - E[X].E[Y]$: amount X and Y vary together  
+$\rho_{X,Y} = \frac{cov(X,Y)}{\sigma_X\sigma_Y}$  
+$\rho_{aX+b,cY+d} = sign(ac).\rho_{X,Y}$  
+Cauchy-Schwartz inequality: $|E(XY)| \leq \sqrt{E(X^2)}.\sqrt{E(Y^2)}, |\sigma_{x,Y}| \leq \sigma_X.\sigma_Y, |\rho_{X,Y}| \leq 1$  
+Independent implies uncorrelated. Uncorrelated does not imply independent.  
+
+**Functions of Random variables / Moment Generating Functions**  
+$Y=g(X), h(y)=g^-1(y), f_Y(y)=f_X(h(y)).|h'(y)| = \frac{1}{|g'(x)|}f_X(x)|_{y=g(x)}$  
+$M_X(t)=E[e^{tX}], M_{aX+b} = e^{bt}M_X(at), E[X]=M_X'(0), E[X^n]=M_X^{(n)}(0)$  
+Properties: Positive, M(0)=1, Finite support, MGF of sum is product of MGF, if same MGF then same distribution.
+
+Distribution|support|pmf/pdf|cdf|mgf|mean|variance|
+:---|:-----|:--------|:---|:------|:---|:---|
+Bernouilli|$k\in \{0,1\}$|$f_p(k)=p^k (1-p)^{1-k}$||$1+p(e^t-1)$|$p$|$p(1-p)$
+Binomial|$k\in \{0,1,...,n\}$|$f_{n,p}(k)=\binom{n}{k}p^k(1-p)^{n-k}$||$[1+p(e^t-1)]^n$|$np$|$np(1-p)$
+Geometric|$k\in \{1,2,,...,n\}$|$f_p(k)=p(1-p)^{k-1}$|$1-(1-p)^k$||$\frac{1}{p}$|$\frac{1-p}{p^2}$
+Poisson|$k \geq 0, \lambda \geq 0$|$f_{\lambda}(k)=\frac{\lambda^ke^{-\lambda}}{k!}$||$e^{\lambda(e^t-1)}$|$\lambda$|$\lambda$
+Uniform|[a,b]|$\frac{1}{b-a}$|$\frac{x-a}{b-a}$||$\frac{a+b}{2}$|$\frac{(b-a)^2}{12}$
+Exponential|$x\in[0,\infty)$|$f_{\lambda}(x)=\lambda e^{-\lambda x}$|$1-e^{-\lambda x}$||$\frac{1}{\lambda}$|$\frac{1}{\lambda^2}$
+Gaussian|$x\in \mathbb{R}$|$f_{(\mu,\sigma^2)}(x) = \frac{1}{\sigma \sqrt{2 \pi} } e^{-\frac{(x - \mu)^2}{2 \sigma^2} }$|$\Phi(x)$|$e^{\mu t+\frac{\sigma^2t^2}{2}}$|$\mu$|$\sigma^2$
+
+geometric and exponential distributions are memoryless. exponential extends geometric to continuous values.  
+Poisson binomial, extends binomial, $p_i$ different but known for each trial. $E(X)=\sum_ip_i, V(X)=\sum_ip_i(1-p_i)$  
+Poisson approximates Binomial for $\lambda=np, n\gg1 \gg p$  
+Binomial: n Bernoulli trials, count successes.  
+Geometric: Number of Bernoulli trials until first success. Any discrete memoryless distribution is geometric.  
+Negative binomial distribution: Number of Bernouilli trials until r's success $\binom{n-1}{r-1}p^r(1-p)^{n-r}$  
+normal distribution approximates the binomial distribution. Linear transformations of normal distributions are normal.  
+$X \sim N(\mu,\sigma^2), Y=aX+b, Y \sim N(a\mu+b,a^2\sigma^2), Z=\frac{X-\mu}{\sigma} \sim N(0,1), 68, 95, 99.7 rule$  
+Normal approximation of binomial: $X \sim B_{n,p} \sim N(np,np(1-p))$  
+
+**Inequalities**  
+Markov's: $X\geq0, \forall \alpha \geq 1, P(X \geq \alpha \mu) \leq \frac{1}{\alpha}, \forall a \geq \mu, P(X \geq a) \leq \frac{\mu}{a}$. Decreases linearly  
+Chebychev's: $\forall X \forall \alpha \geq1, P(|X-\mu|\geq\alpha\sigma) \leq \frac{1}{\sigma^2}, \forall a \geq \sigma, P(|X-\mu|) \geq a) \leq \frac{\sigma^2}{a^2}$. Decreases quadratically  
+Chernoff Bound: $X\sim B_{p,n}, P(X \geq (1+\delta)\mu) \leq e^{-\frac{\delta^2}{2+\delta}\mu}, P(X \leq (1-\delta)\mu) \leq e^{-\frac{\delta^2}{2}\mu}$. Decreases exponentially in n.
+
+**Weak law of large numbers**  
+$X^n=X_1,...X_n$ iid samples with finite $\mu$ and $\sigma^2$, $P(|\overline{X^n}-\mu|\geq \epsilon) \leq \frac{\sigma^2}{\epsilon^2}\frac{1}{n}$: $\overline{X^n}$ converges in probability to $\mu$.  
+Generalizes with $\mu=\frac{1}{n}\sum_i\mu_i, \sigma^2=\frac{1}{n}\sum_i\sigma_i^2$ when means and sd differ.  
+
+**Central Limit Theorem**
+Normalized sum of random variables is roughly normal (discrete, continuous, mixed, under mild conditions).  
+X_1,X_2... be iid with finite $\mu$ and $\sigma$, as $n \to \infty$ the distribution of $\frac{X_1+X_2+...+X_n-n\mu}{\sigma\sqrt{n}}$ approaches $N(0,1)$  
+$P(\overline{X^n} \leq \alpha) \approx \Phi(\frac{\alpha - \mu}{\sigma / \sqrt{n}})$
+Central Limit Theorem: $\bar{X}\sim\mathcal{N}(\mu,\frac{\sigma^2}{n})$
+
+**Statistics**  
+Estimator Bias and variance tradeoff. Performance measured by Mean Squared Error.$MSE = Bias^2 + Variance$  
+Sample Mean: $E[\overline{X}] = \mu$ (unbiased), $V(\overline{X})=\frac{\sigma^2}{n}$, $MSE_\mu(\overline{X})=Bias_\mu^2(\overline{X})+V(\overline{X})=\frac{\sigma^2}{n}$  
+Raw $S^2=\frac{1}{n}\sum(x_i-\overline{x})^2=\frac{1}{n}\sum x_i^2 - \overline{x}^2$  
+Bessel's correction: $S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2=\frac{1}{n-1}(\sum_{i=1}^nX_i^2-n\overline{X}^2)$  
+No general unbiased estimator for standard deviation.  
+Confidence intervals: $P(-a\leq Z \leq a) = 2\Phi(a) - 1$ (python=norm.cdf)  
+Given desired probability, $\Phi(z_p)=\frac{1+p}{2}, z_p =\Phi^{-1}(\frac{1+p}{2})$ (python=norm.ppf)  
+Confidence interval for the mean: $(\overline{X}-z_p\frac{\sigma}{ \sqrt{n}}, \overline{X}+z_p\frac{\sigma}{\sqrt{n}})$  
+If $\sigma$ is unknown, replace by S. $\frac{\overline{X}-\mu}{S/\sqrt{n}} \sim$ Student's t-distribution whith n-1 degrees of freedom. (python=t.pdf(x,n-1))  
+Confidence interval for the mean if $\sigma$ unknown: $(\overline{X}-t_{p,n-1}\frac{S}{ \sqrt{n}}, \overline{X}+t_{p,n-1}\frac{S}{\sqrt{n}}), t_{p,n-1}=F_{n-1}^{-1}(\frac{1+p}{2})$  
+
+**Hypothesis testing**  
+Hypothesis = Assumption about parameters. simple or composite, one-sided or two-sided.  
+Null hypothesis, $H_0$ is the _status_.  
+Determine the distribution of a test statistic under $H_0$. Reject $H_0$ if small probability.
+Type-I error: reject $H_0$ when $H_0$ is true.  
+Significance level $\alpha$: If $H_0$ is true, accept $H_A$ with probability $\leq \alpha. P_{H_0}(X\geq X_\alpha) \leq \alpha$.  
+Method: critical-value or p-value.  
+z-test ($\sigma$ known) or t-test ($\sigma$ unknown).  
+
+**Integration by parts**  
+$\int u.dv = uv - \int v.du$
+
