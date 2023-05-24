@@ -102,7 +102,7 @@ Normal approximation of binomial: $X \sim B_{n,p} \sim N(np,np(1-p))$
 
 **Inequalities**  
 Markov's: $X\geq0, \forall \alpha \geq 1, P(X \geq \alpha \mu) \leq \frac{1}{\alpha}, \forall a \geq \mu, P(X \geq a) \leq \frac{\mu}{a}$. Decreases linearly  
-Chebychev's: $\forall X \forall \alpha \geq1, P(|X-\mu|\geq\alpha\sigma) \leq \frac{1}{\sigma^2}, \forall a \geq \sigma, P(|X-\mu|) \geq a) \leq \frac{\sigma^2}{a^2}$. Decreases quadratically  
+Chebyshev's: $\forall X \forall \alpha \geq1, P(|X-\mu|\geq\alpha\sigma) \leq \frac{1}{\sigma^2}, \forall a \geq \sigma, P(|X-\mu|) \geq a) \leq \frac{\sigma^2}{a^2}$. Decreases quadratically  
 Chernoff Bound: $X\sim B_{p,n}, P(X \geq (1+\delta)\mu) \leq e^{-\frac{\delta^2}{2+\delta}\mu}, P(X \leq (1-\delta)\mu) \leq e^{-\frac{\delta^2}{2}\mu}$. Decreases exponentially in n.
 
 **Weak law of large numbers**  

@@ -48,17 +48,23 @@ ways to write n as a sum of k non negative integers, when order matters: $\binom
 infinite series $\sum_{i=0}^\infty a_i$ converges if $\sum_{i=0}^\infty |a_i| < \infty$. In that case the order of terms can be permuted.  
 Geometric: $\sum_{0}^{+\infty} aq^n = \frac{a}{1-q}, q<1$  
 Taylor expension, Maclaurin for exponential : $e^x = \sum_{n=0}^{\infty}\frac{x^n}{n!}$  
-Euler number: $\lim_{n\to\infty} (1 + \frac{1}{n})^n = e$  
+Euler number: $\lim_{n\to\infty} (1 + \frac{1}{n})^n = e, \lim_{n\to\infty} (1 + \frac{a}{n})^n = e^a$  
 Harmonic Sum: $\frac{1}{1}+\frac{1}{2}+...+\frac{1}{n} \to ln(n)+0.5777$  
 $\frac{1}{1^2}+\frac{1}{2^2}+...+\frac{1}{(n-1)^2}+\frac{1}{n^2} \to \frac{\pi^2}{6}$
 
+**Integration by parts**  
+$\int u.dv = uv - \int v.du$
+
 **Probability**  
-Conditional probability: $P(A|B) = \frac{P(A\cap B)}{P(B)}$  
-Independence: $P(A\cap B) = P(A).P(B)$  
+3 Axioms of probability: Non negativity ($P(A)\ge0$), Additivity ($P(A\cup B) = P(A)+P(B)$ if A,B disjoint), Normalization ($P(\Omega)=1$)  
 Total probability: $P(A)=P(B).P(A|B)+P(B^c).P(A|B^c)$ (extends to partition of $\Omega$)  
+Multiplication rule: $P(A\cap B)=P(A).P(B|A) = P(B).P(A|B)$ (extends to more than 2)  
+Conditional probability: $P(A|B) = \frac{P(A\cap B)}{P(B)}$  
 Baye's Rule: $P(A|B) = \frac{P(A).P(B|A)}{P(B)}$    
 Marginal: $p(x) = \sum_yp(x,y)$  
-Independence: $p(x,y) = p(x).p(y)$. rows and columns proportional in joint probability matrix  
+Independence: $P(A\cap B) = P(A).P(B)$. rows and columns proportional in joint probability matrix  
+Independence of collection of events: $P(A_1\cap A_2 ...\cap A_m)=P(A_1).p(A_2)...P(A_m)$ for any subset of the collection.   
+Independence does not imply conditional independence. Pairwise independence does not imply independence of collection.  
 
 **Expectation and Variance**  
 Linearity of expectation: $E(aX+b)=aE(X)+b$  
@@ -93,7 +99,7 @@ Gaussian|$x\in \mathbb{R}$|$f_{(\mu,\sigma^2)}(x) = \frac{1}{\sigma \sqrt{2 \pi}
 geometric and exponential distributions are memoryless. exponential extends geometric to continuous values.  
 Poisson binomial, extends binomial, $p_i$ different but known for each trial. $E(X)=\sum_ip_i, V(X)=\sum_ip_i(1-p_i)$  
 Poisson approximates Binomial for $\lambda=np, n\gg1 \gg p$  
-Binomial: n Bernoulli trials, count successes.  
+Binomial: n Bernoulli trials, count successes. Binomial ($n, p=\lambda /n$ ) converges to Poisson($\lambda$).  
 Geometric: Number of Bernoulli trials until first success. Any discrete memoryless distribution is geometric.  
 Negative binomial distribution: Number of Bernouilli trials until r's success $\binom{n-1}{r-1}p^r(1-p)^{n-r}$  
 normal distribution approximates the binomial distribution. Linear transformations of normal distributions are normal.  
@@ -102,7 +108,7 @@ Normal approximation of binomial: $X \sim B_{n,p} \sim N(np,np(1-p))$
 
 **Inequalities**  
 Markov's: $X\geq0, \forall \alpha \geq 1, P(X \geq \alpha \mu) \leq \frac{1}{\alpha}, \forall a \geq \mu, P(X \geq a) \leq \frac{\mu}{a}$. Decreases linearly  
-Chebychev's: $\forall X \forall \alpha \geq1, P(|X-\mu|\geq\alpha\sigma) \leq \frac{1}{\sigma^2}, \forall a \geq \sigma, P(|X-\mu|) \geq a) \leq \frac{\sigma^2}{a^2}$. Decreases quadratically  
+Chebyshev's: $\forall X \forall \alpha \geq1, P(|X-\mu|\geq\alpha\sigma) \leq \frac{1}{\sigma^2}, \forall a \geq \sigma, P(|X-\mu|) \geq a) \leq \frac{\sigma^2}{a^2}$. Decreases quadratically  
 Chernoff Bound: $X\sim B_{p,n}, P(X \geq (1+\delta)\mu) \leq e^{-\frac{\delta^2}{2+\delta}\mu}, P(X \leq (1-\delta)\mu) \leq e^{-\frac{\delta^2}{2}\mu}$. Decreases exponentially in n.
 
 **Weak law of large numbers**  
@@ -115,19 +121,26 @@ X_1,X_2... be iid with finite $\mu$ and $\sigma$, as $n \to \infty$ the distribu
 $P(\overline{X^n} \leq \alpha) \approx \Phi(\frac{\alpha - \mu}{\sigma / \sqrt{n}})$
 Central Limit Theorem: $\bar{X}\sim\mathcal{N}(\mu,\frac{\sigma^2}{n})$
 
-**Statistics**  
+**Statistics - Estimation**  
+A _statistic_ is any measurable function of the sample  
+An _estimator_ of $\theta$ is a statistic $\hat{\theta} = \hat{\theta}(X_1,X_2,...X_n)$ whose expression does not depend on $\theta$.  
+An estimator $\hat{\theta}$ is consistent if it converges to $\theta$. (weakly if convergence in probability, strongly if almost surely).  
+_Bias_ of an estimator: $Bias(\hat{\theta}) = E[\hat{\theta}]-\theta$  
+_Jensens's inequality_: if f is convex, $E[f(x)] \ge f(E[x])$. If g is concave, $E[g(x)] \le g(E[x])$.  
 Estimator Bias and variance tradeoff. Performance measured by Mean Squared Error.$MSE = Bias^2 + Variance$  
 Sample Mean: $E[\overline{X}] = \mu$ (unbiased), $V(\overline{X})=\frac{\sigma^2}{n}$, $MSE_\mu(\overline{X})=Bias_\mu^2(\overline{X})+V(\overline{X})=\frac{\sigma^2}{n}$  
 Raw $S^2=\frac{1}{n}\sum(x_i-\overline{x})^2=\frac{1}{n}\sum x_i^2 - \overline{x}^2$  
 Bessel's correction: $S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2=\frac{1}{n-1}(\sum_{i=1}^nX_i^2-n\overline{X}^2)$  
 No general unbiased estimator for standard deviation.  
+
+**Statistics - Confidence intervals**  
 Confidence intervals: $P(-a\leq Z \leq a) = 2\Phi(a) - 1$ (python=norm.cdf)  
 Given desired probability, $\Phi(z_p)=\frac{1+p}{2}, z_p =\Phi^{-1}(\frac{1+p}{2})$ (python=norm.ppf)  
 Confidence interval for the mean: $(\overline{X}-z_p\frac{\sigma}{ \sqrt{n}}, \overline{X}+z_p\frac{\sigma}{\sqrt{n}})$  
-If $\sigma$ is unknown, replace by S. $\frac{\overline{X}-\mu}{S/\sqrt{n}} \sim$ Student's t-distribution whith n-1 degrees of freedom. (python=t.pdf(x,n-1))  
+If $\sigma$ is unknown, replace by S. $\frac{\overline{X}-\mu}{S/\sqrt{n}} \sim$ Student's t-distribution whith n-1 degrees of freedom. (python=t.pdf(x,n-1)) 
 Confidence interval for the mean if $\sigma$ unknown: $(\overline{X}-t_{p,n-1}\frac{S}{ \sqrt{n}}, \overline{X}+t_{p,n-1}\frac{S}{\sqrt{n}}), t_{p,n-1}=F_{n-1}^{-1}(\frac{1+p}{2})$  
 
-**Hypothesis testing**  
+**Statistics - Hypothesis testing**  
 Hypothesis = Assumption about parameters. simple or composite, one-sided or two-sided.  
 Null hypothesis, $H_0$ is the _status_.  
 Determine the distribution of a test statistic under $H_0$. Reject $H_0$ if small probability.
@@ -136,6 +149,8 @@ Significance level $\alpha$: If $H_0$ is true, accept $H_A$ with probability $\l
 Method: critical-value or p-value.  
 z-test ($\sigma$ known) or t-test ($\sigma$ unknown).  
 
-**Integration by parts**  
-$\int u.dv = uv - \int v.du$
+**Matrices and vectors**  
+u, v (1,d) column vectors. $u^T.v$ is a scalar, inner product or dor product. $u.v^T$ is (d,d) matrix = outer product.  
+determinant of matrix = ad-bc = product of eigenvalues.  
+trace of matrix = sum of diagonal entries = sum of eigenvalues.  
 
