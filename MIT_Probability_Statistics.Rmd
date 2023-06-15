@@ -56,23 +56,25 @@ $\frac{1}{1^2}+\frac{1}{2^2}+...+\frac{1}{(n-1)^2}+\frac{1}{n^2} \to \frac{\pi^2
 $\int u.dv = uv - \int v.du$
 
 **Probability**  
-3 Axioms of probability: Non negativity ($P(A)\ge0$), Additivity ($P(A\cup B) = P(A)+P(B)$ if A,B disjoint), Normalization ($P(\Omega)=1$)  
-Total probability: $P(A)=P(B).P(A|B)+P(B^c).P(A|B^c)$ (extends to partition of $\Omega$)  
-Multiplication rule: $P(A\cap B)=P(A).P(B|A) = P(B).P(A|B)$ (extends to more than 2)  
-Conditional probability: $P(A|B) = \frac{P(A\cap B)}{P(B)}$  
-Baye's Rule: $P(A|B) = \frac{P(A).P(B|A)}{P(B)}$    
-Marginal: $p(x) = \sum_yp(x,y)$  
-Independence: $P(A\cap B) = P(A).P(B)$. rows and columns proportional in joint probability matrix  
+_3 Axioms of probability_: Non negativity ($P(A)\ge0$), Additivity ($P(A\cup B) = P(A)+P(B)$ if A,B disjoint), Normalization ($P(\Omega)=1$)  
+_Total probability_: $P(A)=P(B).P(A|B)+P(B^c).P(A|B^c)$ (extends to partition of $\Omega$)  
+_Multiplication rule_: $P(A\cap B)=P(A).P(B|A) = P(B).P(A|B)$ (extends to more than 2)  
+_Conditional probability_: $P(A|B) = \frac{P(A\cap B)}{P(B)}$  
+_Baye's Rule_: $P(A|B) = \frac{P(A).P(B|A)}{P(B)}$    
+_Marginal_: $p(x) = \sum_yp(x,y)$  
+_Independence_: $P(A\cap B) = P(A).P(B)$. rows and columns proportional in joint probability matrix  
 Independence of collection of events: $P(A_1\cap A_2 ...\cap A_m)=P(A_1).p(A_2)...P(A_m)$ for any subset of the collection.   
 Independence does not imply conditional independence. Pairwise independence does not imply independence of collection.  
 
 **Expectation and Variance**  
-Linearity of expectation: $E(aX+b)=aE(X)+b$  
+_Linearity of expectation_: $E(aX+b)=aE(X)+b$  
 $Y=g(X), E(Y)=\sum_xg(x)p_x$  
 $V(X)=E[(X-\mu)^2] = E[X^2] - (E[X])^2$  
 $V(aX+b) = a^2V(X)$  
-$E(X+Y)=E(X)+E(Y), usually, E(XY) \neq E(X).E(Y)$
+$E(X+Y)=E(X)+E(Y), usually, E(XY) \neq E(X).E(Y) (unless X,Y independent)$  
+If X,Y independent, $E[g(x)h(y)]=E[g(x)].E[h(y)]$  
 $V(aX+bY) = a^2V(X)+b^2V(Y)+2ab.cov(X,Y)$  
+_Total Expectation Theorem_: $E[X] = P(A_1).E[X|A_1]+...+P(A_n).E[X|A_n]$
 
 **Covariance and Pearson's correlation coefficient**  
 $cov(X,Y) = E[(X-E[X]).(Y-E[Y])] = E[XY] - E[X].E[Y]$: amount X and Y vary together  
@@ -137,8 +139,9 @@ No general unbiased estimator for standard deviation.
 Confidence intervals: $P(-a\leq Z \leq a) = 2\Phi(a) - 1$ (python=norm.cdf)  
 Given desired probability, $\Phi(z_p)=\frac{1+p}{2}, z_p =\Phi^{-1}(\frac{1+p}{2})$ (python=norm.ppf)  
 Confidence interval for the mean: $(\overline{X}-z_p\frac{\sigma}{ \sqrt{n}}, \overline{X}+z_p\frac{\sigma}{\sqrt{n}})$  
-If $\sigma$ is unknown, replace by S. $\frac{\overline{X}-\mu}{S/\sqrt{n}} \sim$ Student's t-distribution whith n-1 degrees of freedom. (python=t.pdf(x,n-1)) 
+If $\sigma$ is unknown, replace by S. $\frac{\overline{X}-\mu}{S/\sqrt{n}} \sim$ Student's t-distribution whith n-1 degrees of freedom. (python=t.pdf(x,n-1))  
 Confidence interval for the mean if $\sigma$ unknown: $(\overline{X}-t_{p,n-1}\frac{S}{ \sqrt{n}}, \overline{X}+t_{p,n-1}\frac{S}{\sqrt{n}}), t_{p,n-1}=F_{n-1}^{-1}(\frac{1+p}{2})$  
+_Delta Method_: $\sqrt{n}(g(\bar{X_n})-g(\theta)) \to N(0,(g'(\theta))^2 \sigma^2) = N(0,(g'(E[X_i]))^2 Var(X_i))$  
 
 **Statistics - Hypothesis testing**  
 Hypothesis = Assumption about parameters. simple or composite, one-sided or two-sided.  
