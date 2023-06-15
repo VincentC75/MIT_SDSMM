@@ -32,13 +32,13 @@ functions from A to B: $|B|^{|A|}$
 
 **Permutations and combinations**  
 Permutations: $n!$, Partial permutations: $\frac{n!}{(n-k)!}$, Combinations: $\frac{n!}{k!(n-k)!}$  
-Stirling's approximation: $n! \sim \sqrt{2\pi n}(\frac{n}{e})^n$  
-$\binom{n}{k} = \frac{n!}{k!(n-k)!}= \frac{n}{k} \binom{n-1}{k-1}$  
-$\sum_{i=0}^n \binom{n}{k} = 2^n$  
-Pascal's identity: $\binom{n+1}{k}=\binom{n}{k}+\binom{n}{k-1}$  
+All possible subsets of a set: $\sum_{i=0}^n \binom{n}{k} = 2^n$  
+_Binomial coefficient_: $\binom{n}{k} = \frac{n!}{k!(n-k)!}= \frac{n}{k} \binom{n-1}{k-1}$  
+_Multinomial coefficient_: $\binom{n}{k_1,k_2,k_3} = \frac{n!}{k_1!k_2!k_3!}$  
 Binomial theorem: $(a+b)^n = \sum_{i=0}^n \binom{n}{i}a^{n-i}b^i$  
-Multinomial coefficient: $\binom{n}{k_1,k_2,k_3} = \frac{n!}{k_1!k_2!k_3!}$  
-Multinomial theorem! $(a_1+a_2+...+a_m)^n = \sum_{k_1+k_2+...+k_m=n}\binom{n}{k_1,k_2,...,k_m}\prod_{t=1}^{m}a_t^{k_t}$  
+Multinomial theorem: $(a_1+a_2+...+a_m)^n = \sum_{k_1+k_2+...+k_m=n}\binom{n}{k_1,k_2,...,k_m}\prod_{t=1}^{m}a_t^{k_t}$  
+Pascal's identity: $\binom{n+1}{k}=\binom{n}{k}+\binom{n}{k-1}$  
+_Stirling's approximation_: $n! \sim \sqrt{2\pi n}(\frac{n}{e})^n$  
 $m^n = (1+1+...+1)^n=\sum_{k_1+...+k_m=n}\binom{n}{k_1,k_2,...,k_m}$  
 ways to write n as a sum of k positive integers, when order matters: $\binom{n-1}{k-1}$  
 ways to write n as a sum of any number of positive integers: $2^{n-1}$  
@@ -127,7 +127,7 @@ An _estimator_ of $\theta$ is a statistic $\hat{\theta} = \hat{\theta}(X_1,X_2,.
 An estimator $\hat{\theta}$ is consistent if it converges to $\theta$. (weakly if convergence in probability, strongly if almost surely).  
 _Bias_ of an estimator: $Bias(\hat{\theta}) = E[\hat{\theta}]-\theta$  
 _Jensens's inequality_: if f is convex, $E[f(x)] \ge f(E[x])$. If g is concave, $E[g(x)] \le g(E[x])$.  
-Estimator Bias and variance tradeoff. Performance measured by Mean Squared Error.$MSE = Bias^2 + Variance$  
+_Quadratic risk_$= Bias^2 + Variance = E[(\hat{\theta_n}-\theta)^2]$ = MSE, Mean Squared Error. Bias and variance trade off.   
 Sample Mean: $E[\overline{X}] = \mu$ (unbiased), $V(\overline{X})=\frac{\sigma^2}{n}$, $MSE_\mu(\overline{X})=Bias_\mu^2(\overline{X})+V(\overline{X})=\frac{\sigma^2}{n}$  
 Raw $S^2=\frac{1}{n}\sum(x_i-\overline{x})^2=\frac{1}{n}\sum x_i^2 - \overline{x}^2$  
 Bessel's correction: $S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2=\frac{1}{n-1}(\sum_{i=1}^nX_i^2-n\overline{X}^2)$  
