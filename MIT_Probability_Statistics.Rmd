@@ -46,7 +46,7 @@ ways to write n as a sum of k non negative integers, when order matters: $\binom
 
 **Series and limits**  
 infinite series $\sum_{i=0}^\infty a_i$ converges if $\sum_{i=0}^\infty |a_i| < \infty$. In that case the order of terms can be permuted.  
-Geometric: $\sum_{0}^{+\infty} aq^n = \frac{a}{1-q}, q<1$  
+Geometric: $\sum_{0}^{+\infty} aq^n = \frac{a}{1-q}, q<1$. Partial sum $\sum_{0}^{n-1} aq^n = \frac{a(1-q^n)}{1-q}$ for q<1, $an$ for q=1.
 Taylor expension, Maclaurin for exponential : $e^x = \sum_{n=0}^{\infty}\frac{x^n}{n!}$  
 Euler number: $\lim_{n\to\infty} (1 + \frac{1}{n})^n = e, \lim_{n\to\infty} (1 + \frac{a}{n})^n = e^a$  
 Harmonic Sum: $\frac{1}{1}+\frac{1}{2}+...+\frac{1}{n} \to ln(n)+0.5777$  
@@ -72,7 +72,7 @@ $Y=g(X), E(Y)=\sum_xg(x)p_x$
 $V(X)=E[(X-\mu)^2] = E[X^2] - (E[X])^2$  
 $V(aX+b) = a^2V(X)$  
 $E(X+Y)=E(X)+E(Y), usually, E(XY) \neq E(X).E(Y) (unless X,Y independent)$  
-If X,Y independent, $E[g(x)h(y)]=E[g(x)].E[h(y)]$  
+If X,Y independent, $E[XY]=E[X].E[Y], E[g(x)h(y)]=E[g(x)].E[h(y)], Var(X+Y) = Var(X) + Var(Y)$  
 $V(aX+bY) = a^2V(X)+b^2V(Y)+2ab.cov(X,Y)$  
 _Total Expectation Theorem_: $E[X] = P(A_1).E[X|A_1]+...+P(A_n).E[X|A_n]$
 
