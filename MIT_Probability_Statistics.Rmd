@@ -32,13 +32,13 @@ functions from A to B: $|B|^{|A|}$
 
 **Permutations and combinations**  
 Permutations: $n!$, Partial permutations: $\frac{n!}{(n-k)!}$, Combinations: $\frac{n!}{k!(n-k)!}$  
-Stirling's approximation: $n! \sim \sqrt{2\pi n}(\frac{n}{e})^n$  
-$\binom{n}{k} = \frac{n!}{k!(n-k)!}= \frac{n}{k} \binom{n-1}{k-1}$  
-$\sum_{i=0}^n \binom{n}{k} = 2^n$  
-Pascal's identity: $\binom{n+1}{k}=\binom{n}{k}+\binom{n}{k-1}$  
+All possible subsets of a set: $\sum_{i=0}^n \binom{n}{k} = 2^n$  
+_Binomial coefficient_: $\binom{n}{k} = \frac{n!}{k!(n-k)!}= \frac{n}{k} \binom{n-1}{k-1}$  
+_Multinomial coefficient_: $\binom{n}{k_1,k_2,k_3} = \frac{n!}{k_1!k_2!k_3!}$  
 Binomial theorem: $(a+b)^n = \sum_{i=0}^n \binom{n}{i}a^{n-i}b^i$  
-Multinomial coefficient: $\binom{n}{k_1,k_2,k_3} = \frac{n!}{k_1!k_2!k_3!}$  
-Multinomial theorem! $(a_1+a_2+...+a_m)^n = \sum_{k_1+k_2+...+k_m=n}\binom{n}{k_1,k_2,...,k_m}\prod_{t=1}^{m}a_t^{k_t}$  
+Multinomial theorem: $(a_1+a_2+...+a_m)^n = \sum_{k_1+k_2+...+k_m=n}\binom{n}{k_1,k_2,...,k_m}\prod_{t=1}^{m}a_t^{k_t}$  
+Pascal's identity: $\binom{n+1}{k}=\binom{n}{k}+\binom{n}{k-1}$  
+_Stirling's approximation_: $n! \sim \sqrt{2\pi n}(\frac{n}{e})^n$  
 $m^n = (1+1+...+1)^n=\sum_{k_1+...+k_m=n}\binom{n}{k_1,k_2,...,k_m}$  
 ways to write n as a sum of k positive integers, when order matters: $\binom{n-1}{k-1}$  
 ways to write n as a sum of any number of positive integers: $2^{n-1}$  
@@ -46,7 +46,7 @@ ways to write n as a sum of k non negative integers, when order matters: $\binom
 
 **Series and limits**  
 infinite series $\sum_{i=0}^\infty a_i$ converges if $\sum_{i=0}^\infty |a_i| < \infty$. In that case the order of terms can be permuted.  
-Geometric: $\sum_{0}^{+\infty} aq^n = \frac{a}{1-q}, q<1$  
+Geometric: $\sum_{0}^{+\infty} aq^n = \frac{a}{1-q}, q<1$. Partial sum $\sum_{0}^{n-1} aq^n = \frac{a(1-q^n)}{1-q}$ for q<1, $an$ for q=1.
 Taylor expension, Maclaurin for exponential : $e^x = \sum_{n=0}^{\infty}\frac{x^n}{n!}$  
 Euler number: $\lim_{n\to\infty} (1 + \frac{1}{n})^n = e, \lim_{n\to\infty} (1 + \frac{a}{n})^n = e^a$  
 Harmonic Sum: $\frac{1}{1}+\frac{1}{2}+...+\frac{1}{n} \to ln(n)+0.5777$  
@@ -72,7 +72,7 @@ $Y=g(X), E(Y)=\sum_xg(x)p_x$
 $V(X)=E[(X-\mu)^2] = E[X^2] - (E[X])^2$  
 $V(aX+b) = a^2V(X)$  
 $E(X+Y)=E(X)+E(Y), usually, E(XY) \neq E(X).E(Y) (unless X,Y independent)$  
-If X,Y independent, $E[g(x)h(y)]=E[g(x)].E[h(y)], Var(X+Y) = Var(X) + Var(Y)$  
+If X,Y independent, $E[XY]=E[X].E[Y], E[g(x)h(y)]=E[g(x)].E[h(y)], Var(X+Y) = Var(X) + Var(Y)$  
 $V(aX+bY) = a^2V(X)+b^2V(Y)+2ab.cov(X,Y)$  
 _Total Expectation Theorem_: $E[X] = P(A_1).E[X|A_1]+...+P(A_n).E[X|A_n]$
 
@@ -129,7 +129,7 @@ An _estimator_ of $\theta$ is a statistic $\hat{\theta} = \hat{\theta}(X_1,X_2,.
 An estimator $\hat{\theta}$ is consistent if it converges to $\theta$. (weakly if convergence in probability, strongly if almost surely).  
 _Bias_ of an estimator: $Bias(\hat{\theta}) = E[\hat{\theta}]-\theta$  
 _Jensens's inequality_: if f is convex, $E[f(x)] \ge f(E[x])$. If g is concave, $E[g(x)] \le g(E[x])$.  
-Estimator Bias and variance tradeoff. Performance measured by Mean Squared Error.$MSE = Bias^2 + Variance$  
+_Quadratic risk_$= Bias^2 + Variance = E[(\hat{\theta_n}-\theta)^2]$ = MSE, Mean Squared Error. Bias and variance trade off.   
 Sample Mean: $E[\overline{X}] = \mu$ (unbiased), $V(\overline{X})=\frac{\sigma^2}{n}$, $MSE_\mu(\overline{X})=Bias_\mu^2(\overline{X})+V(\overline{X})=\frac{\sigma^2}{n}$  
 Raw $S^2=\frac{1}{n}\sum(x_i-\overline{x})^2=\frac{1}{n}\sum x_i^2 - \overline{x}^2$  
 Bessel's correction: $S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2=\frac{1}{n-1}(\sum_{i=1}^nX_i^2-n\overline{X}^2)$  
