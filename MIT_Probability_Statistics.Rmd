@@ -72,7 +72,7 @@ $Y=g(X), E(Y)=\sum_xg(x)p_x$
 $V(X)=E[(X-\mu)^2] = E[X^2] - (E[X])^2$  
 $V(aX+b) = a^2V(X)$  
 $E(X+Y)=E(X)+E(Y), usually, E(XY) \neq E(X).E(Y) (unless X,Y independent)$  
-If X,Y independent, $E[g(x)h(y)]=E[g(x)].E[h(y)]$  
+If X,Y independent, $E[g(x)h(y)]=E[g(x)].E[h(y)], Var(X+Y) = Var(X) + Var(Y)$  
 $V(aX+bY) = a^2V(X)+b^2V(Y)+2ab.cov(X,Y)$  
 _Total Expectation Theorem_: $E[X] = P(A_1).E[X|A_1]+...+P(A_n).E[X|A_n]$
 
