@@ -88,6 +88,21 @@ $Y=g(X), h(y)=g^-1(y), f_Y(y)=f_X(h(y)).|h'(y)| = \frac{1}{|g'(x)|}f_X(x)|_{y=g(
 $M_X(t)=E[e^{tX}], M_{aX+b} = e^{bt}M_X(at), E[X]=M_X'(0), E[X^n]=M_X^{(n)}(0)$  
 Properties: Positive, M(0)=1, Finite support, MGF of sum is product of MGF, if same MGF then same distribution.
 
+...|Discrete|Continuous|
+---|---|---|
+Mass vs Density|PMF: $p_X(x), p_{X,Y}(x,y), p_{X|Y}(x|y), p_{X|A}(x|A)$|PDF: $f_X(x), f_{X,Y}(x,y), f_{X|Y}(x|y), f_{X|A}(x|A)$|
+Expectation|$E[X], E[X|A], E[X|Y=y]$|$E[X], E[X|A], E[X|Y=y]$|
+Expected value rule|$E[g(X,Y), E[g(X,Y)|A],E[G(x,y)|Z=z]$|$E[g(X,Y), E[g(X,Y)|A],E[G(x,y)|Z=z]$|
+Linearity|$E[aX+bY]=aE[X]+bE[Y]$|$E[aX+bY]=aE[X]+bE[Y]$|
+Independence|$p_{X,Y}=p_X \cdot p_Y$|$f_{X,Y}=f_X\cdot f_Y$|
+.|$E[XY]=E[X]\cdot E[Y]$|$E[XY]=E[X]\cdot E[Y]$|
+.|$Var(X+Y)=Var(X)+Var(Y)$|$Var(X+Y)=Var(X)+Var(Y)$|
+Multiplication Rule|$p_{X,Y,Z}=p_Z(z)\cdot p_{Y|Z}(y|z)\cdot p_{X|Y,Z}(x|y,z)$|$f_{X,Y,Z}=f_Z(z)\cdot f_{Y|Z}(y|z)\cdot f_{X|Y,Z}(x|y,z)$|
+Total Probability Theorem|$p_X(x)=\sum_yp_Y p_{X|Y}(x|y)$|$f_X(x)=\int_yf_Y f_{X|Y}(x|y)dy$|
+Total Expectation Theorem|$E[X]=\sum_y p_Y(y)\cdot E[X|Y=y]$|$E[X]=\int_y f_Y(y)\cdot E[X|Y=y]dy$|
+Distributions|bernouilli, indicators, uniform, binomial, geometric|uniform, geometric, exponential, normal|
+
+
 Distribution|support|pmf/pdf|cdf|mgf|mean|variance|
 :---|:-----|:--------|:---|:------|:---|:---|
 Bernouilli|$k\in \{0,1\}$|$f_p(k)=p^k (1-p)^{1-k}$||$1+p(e^t-1)$|$p$|$p(1-p)$
