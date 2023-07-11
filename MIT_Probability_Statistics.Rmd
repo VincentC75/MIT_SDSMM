@@ -72,13 +72,14 @@ $Y=g(X), E(Y)=\sum_xg(x)p_x$
 $E(X+Y)=E(X)+E(Y), usually, E(XY) \neq E(X).E(Y) (unless X,Y independent)$  
 If X,Y independent, $E[XY]=E[X].E[Y], E[g(x)h(y)]=E[g(x)].E[h(y)], Var(X+Y) = Var(X) + Var(Y)$  
 _Total Expectation Theorem_: $E[X] = P(A_1).E[X|A_1]+...+P(A_n).E[X|A_n]$
-_Law of iterated expectations_: $E[E[X|Y]] = E[X]$  
+_Law of Iterated Expectations_: $E[E[X|Y]] = E[X]$  
 
 **Variance**  
 $V(X)=E[(X-\mu)^2] = E[X^2] - (E[X])^2$  
 $V(aX+b) = a^2V(X)$  
 $V(aX+bY) = a^2V(X)+b^2V(Y)+2ab.cov(X,Y)$  
 $V(X_1+...+X_n) = \sum_{i=1}^nV(X_i) + \sum_{i\neq j}Cov(X_i,X_j)$  
+_Law of Total Variance_: $Var(X) = E[Var(X|Y)] + Var(E[X|Y])$  
 
 **Covariance and Pearson's correlation coefficient**  
 $cov(X,Y) = E[(X-E[X]).(Y-E[Y])] = E[XY] - E[X].E[Y]$: amount X and Y vary together  
