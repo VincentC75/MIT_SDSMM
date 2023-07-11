@@ -66,15 +66,19 @@ _Independence_: $P(A\cap B) = P(A).P(B)$. rows and columns proportional in joint
 Independence of collection of events: $P(A_1\cap A_2 ...\cap A_m)=P(A_1).p(A_2)...P(A_m)$ for any subset of the collection.   
 Independence does not imply conditional independence. Pairwise independence does not imply independence of collection.  
 
-**Expectation and Variance**  
+**Expectation**  
 _Linearity of expectation_: $E(aX+b)=aE(X)+b$  
 $Y=g(X), E(Y)=\sum_xg(x)p_x$  
-$V(X)=E[(X-\mu)^2] = E[X^2] - (E[X])^2$  
-$V(aX+b) = a^2V(X)$  
 $E(X+Y)=E(X)+E(Y), usually, E(XY) \neq E(X).E(Y) (unless X,Y independent)$  
 If X,Y independent, $E[XY]=E[X].E[Y], E[g(x)h(y)]=E[g(x)].E[h(y)], Var(X+Y) = Var(X) + Var(Y)$  
-$V(aX+bY) = a^2V(X)+b^2V(Y)+2ab.cov(X,Y)$  
 _Total Expectation Theorem_: $E[X] = P(A_1).E[X|A_1]+...+P(A_n).E[X|A_n]$
+_Law of iterated expectations_: $E[E[X|Y]] = E[X]$  
+
+**Variance**  
+$V(X)=E[(X-\mu)^2] = E[X^2] - (E[X])^2$  
+$V(aX+b) = a^2V(X)$  
+$V(aX+bY) = a^2V(X)+b^2V(Y)+2ab.cov(X,Y)$  
+$V(X_1+...+X_n) = \sum_{i=1}^nV(X_i) + \sum_{i\neq j}Cov(X_i,X_j)$  
 
 **Covariance and Pearson's correlation coefficient**  
 $cov(X,Y) = E[(X-E[X]).(Y-E[Y])] = E[XY] - E[X].E[Y]$: amount X and Y vary together  
@@ -122,6 +126,12 @@ Negative binomial distribution: Number of Bernouilli trials until r's success $\
 normal distribution approximates the binomial distribution. Linear transformations of normal distributions are normal.  
 $X \sim N(\mu,\sigma^2), Y=aX+b, Y \sim N(a\mu+b,a^2\sigma^2), Z=\frac{X-\mu}{\sigma} \sim N(0,1), 68, 95, 99.7 rule$  
 Normal approximation of binomial: $X \sim B_{n,p} \sim N(np,np(1-p))$  
+
+**Derived Distributions**  
+$Y=aX+B: p_Y(y)=p_X(\frac{y-b}{a}), f_Y(y) = \frac{1}{|a|}f_X(\frac{y-b}{a})$  
+For Y=g(X), first find the CDF and then derive it to get the pdf.  
+if g is monotonic, $Y=g(X), X=g^{-1}(y)=h(y), f_Y(y)=f_X(h(y)).|h'(y)|$  
+Convolution formula: $Z=X+Y, p_Z(z)=\sum_xp_X(x)\cdot p_Y(z-x), f_Z(z)=\int_xf_X(x)\cdot f_Y(z-x)dx$   
 
 **Inequalities**  
 Markov's: $X\geq0, \forall \alpha \geq 1, P(X \geq \alpha \mu) \leq \frac{1}{\alpha}, \forall a \geq \mu, P(X \geq a) \leq \frac{\mu}{a}$. Decreases linearly  
