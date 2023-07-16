@@ -91,13 +91,6 @@ $\rho_{aX+b,cY+d} = sign(ac).\rho_{X,Y}$
 Cauchy-Schwartz inequality: $|E(XY)| \leq \sqrt{E(X^2)}.\sqrt{E(Y^2)}, |\sigma_{x,Y}| \leq \sigma_X.\sigma_Y, |\rho_{X,Y}| \leq 1$  
 Independent implies uncorrelated. Uncorrelated does not imply independent.  
 
-**Functions of Random variables / Moment Generating Functions**  
-$Y=g(X), h(y)=g^-1(y), f_Y(y)=f_X(h(y)).|h'(y)| = \frac{1}{|g'(x)|}f_X(x)|_{y=g(x)}$  
-$M_X(t)=E[e^{tX}], M_{aX+b} = e^{bt}M_X(at), E[X]=M_X'(0), E[X^n]=M_X^{(n)}(0)$  
-Properties: Positive, M(0)=1, Finite support, MGF of sum is product of MGF, if same MGF then same distribution.
-Sum of a Random number of iid variables X. $S=\sum_NX_i, E[S]=E[N]E[X], Var(S) = E[N]Var(X) + E[X]^2Var(N)$  
-Absolute value of Y=|X|: $p_Y(y) = p_X(y) + p_X(-y), f_Y(y) = f_X(y) + f_X(-y)$  
-
 ...|Discrete|Continuous|
 ---|---|---|
 Mass vs Density|PMF: $p_X(x), p_{X,Y}(x,y), p_{X|Y}(x|y), p_{X|A}(x|A)$|PDF: $f_X(x), f_{X,Y}(x,y), f_{X|Y}(x|y), f_{X|A}(x|A)$|
@@ -139,6 +132,8 @@ $Y=aX+B: p_Y(y)=p_X(\frac{y-b}{a}), f_Y(y) = \frac{1}{|a|}f_X(\frac{y-b}{a})$
 For Y=g(X), first find the CDF and then derive it to get the pdf.  
 if g is monotonic, $Y=g(X), h(y)=g^-1(y), f_Y(y)=f_X(h(y)).|h'(y)| = \frac{1}{|g'(x)|}f_X(x)|_{y=g(x)}$  
 _Convolution formula_: $Z=X+Y, p_Z(z)=\sum_xp_X(x)\cdot p_Y(z-x), f_Z(z)=\int_xf_X(x)\cdot f_Y(z-x)dx$   
+Sum of a Random number of iid variables X. $S=\sum_NX_i, E[S]=E[N]E[X], Var(S) = E[N]Var(X) + E[X]^2Var(N)$  
+Absolute value of Y=|X|: $p_Y(y) = p_X(y) + p_X(-y), f_Y(y) = f_X(y) + f_X(-y)$  
 
 **Moment Generating Functions**  
 $M_X(t)=E[e^{tX}], M_{aX+b} = e^{bt}M_X(at), E[X]=M_X'(0), E[X^n]=M_X^{(n)}(0)$  
