@@ -53,7 +53,8 @@ Harmonic Sum: $\frac{1}{1}+\frac{1}{2}+...+\frac{1}{n} \to ln(n)+0.5777$
 $\frac{1}{1^2}+\frac{1}{2^2}+...+\frac{1}{(n-1)^2}+\frac{1}{n^2} \to \frac{\pi^2}{6}$
 
 **Integration by parts**  
-$\int u.dv = uv - \int v.du$
+$\int u.dv = uv - \int v.du$  
+$\int_0^1\Theta^\alpha(1-\Theta)^\beta d\theta=\frac{\alpha!\beta!}{(\alpha+\beta+1)!}$
 
 **Probability**  
 _3 Axioms of probability_: Non negativity ($P(A)\ge0$), Additivity ($P(A\cup B) = P(A)+P(B)$ if A,B disjoint), Normalization ($P(\Omega)=1$)  
@@ -71,8 +72,9 @@ _Linearity of expectation_: $E(aX+b)=aE(X)+b$
 $Y=g(X), E(Y)=\sum_xg(x)p_x$  
 $E(X+Y)=E(X)+E(Y), usually, E(XY) \neq E(X).E(Y) (unless X,Y independent)$  
 If X,Y independent, $E[XY]=E[X].E[Y], E[g(x)h(y)]=E[g(x)].E[h(y)], Var(X+Y) = Var(X) + Var(Y)$  
-_Total Expectation Theorem_: $E[X] = P(A_1).E[X|A_1]+...+P(A_n).E[X|A_n]$
+_Total Expectation Theorem_: $E[X] = P(A_1).E[X|A_1]+...+P(A_n).E[X|A_n]$  
 _Law of Iterated Expectations_: $E[E[X|Y]] = E[X]$  
+Sum of a random number of random variables : E[S] = E[N]*E[X]
 
 **Variance**  
 $V(X)=E[(X-\mu)^2] = E[X^2] - (E[X])^2$  
@@ -80,6 +82,7 @@ $V(aX+b) = a^2V(X)$
 $V(aX+bY) = a^2V(X)+b^2V(Y)+2ab.cov(X,Y)$  
 $V(X_1+...+X_n) = \sum_{i=1}^nV(X_i) + \sum_{i\neq j}Cov(X_i,X_j)$  
 _Law of Total Variance_: $Var(X) = E[Var(X|Y)] + Var(E[X|Y])$  
+Sum of a random number of random variables : $V(S) = E[N]*V(X) + (E[X])^2*V(N)$  
 
 **Covariance and Pearson's correlation coefficient**  
 $cov(X,Y) = E[(X-E[X]).(Y-E[Y])] = E[XY] - E[X].E[Y]$: amount X and Y vary together  
@@ -100,18 +103,19 @@ Independence|$p_{X,Y}=p_X \cdot p_Y$|$f_{X,Y}=f_X\cdot f_Y$|
 Multiplication Rule|$p_{X,Y,Z}=p_Z(z)\cdot p_{Y|Z}(y|z)\cdot p_{X|Y,Z}(x|y,z)$|$f_{X,Y,Z}=f_Z(z)\cdot f_{Y|Z}(y|z)\cdot f_{X|Y,Z}(x|y,z)$|
 Total Probability Theorem|$p_X(x)=\sum_yp_Y p_{X|Y}(x|y)$|$f_X(x)=\int_yf_Y f_{X|Y}(x|y)dy$|
 Total Expectation Theorem|$E[X]=\sum_y p_Y(y)\cdot E[X|Y=y]$|$E[X]=\int_y f_Y(y)\cdot E[X|Y=y]dy$|
-Distributions|bernouilli, indicators, uniform, binomial, geometric|uniform, geometric, exponential, normal|
+Distributions|bernouilli, indicators, uniform, binomial, geometric|uniform, geometric, exponential, normal, beta|
 
 
 Distribution|support|pmf/pdf|cdf|mgf|mean|variance|
 :---|:-----|:--------|:---|:------|:---|:---|
-Bernouilli|$k\in \{0,1\}$|$f_p(k)=p^k (1-p)^{1-k}$||$1+p(e^t-1)$|$p$|$p(1-p)$
-Binomial|$k\in \{0,1,...,n\}$|$f_{n,p}(k)=\binom{n}{k}p^k(1-p)^{n-k}$||$[1+p(e^t-1)]^n$|$np$|$np(1-p)$
-Geometric|$k\in \{1,2,,...,n\}$|$f_p(k)=p(1-p)^{k-1}$|$1-(1-p)^k$||$\frac{1}{p}$|$\frac{1-p}{p^2}$
-Poisson|$k \geq 0, \lambda \geq 0$|$f_{\lambda}(k)=\frac{\lambda^ke^{-\lambda}}{k!}$||$e^{\lambda(e^t-1)}$|$\lambda$|$\lambda$
+Bernouilli|$k\in \{0,1\}$|$p_p(k)=p^k (1-p)^{1-k}$||$1+p(e^t-1)$|$p$|$p(1-p)$
+Binomial|$k\in \{0,1,...,n\}$|$p_{n,p}(k)=\binom{n}{k}p^k(1-p)^{n-k}$||$[1+p(e^t-1)]^n$|$np$|$np(1-p)$
+Geometric|$k\in \{1,2,,...,n\}$|$p_p(k)=p(1-p)^{k-1}$|$1-(1-p)^k$||$\frac{1}{p}$|$\frac{1-p}{p^2}$
+Poisson|$k \geq 0, \lambda \geq 0$|$p_{\lambda}(k)=\frac{\lambda^ke^{-\lambda}}{k!}$||$e^{\lambda(e^t-1)}$|$\lambda$|$\lambda$
 Uniform|[a,b]|$\frac{1}{b-a}$|$\frac{x-a}{b-a}$||$\frac{a+b}{2}$|$\frac{(b-a)^2}{12}$
 Exponential|$x\in[0,\infty)$|$f_{\lambda}(x)=\lambda e^{-\lambda x}$|$1-e^{-\lambda x}$||$\frac{1}{\lambda}$|$\frac{1}{\lambda^2}$
 Gaussian|$x\in \mathbb{R}$|$f_{(\mu,\sigma^2)}(x) = \frac{1}{\sigma \sqrt{2 \pi} } e^{-\frac{(x - \mu)^2}{2 \sigma^2} }$|$\Phi(x)$|$e^{\mu t+\frac{\sigma^2t^2}{2}}$|$\mu$|$\sigma^2$
+Beta|$x\in[0,1]$|$f_{\alpha,\beta}(x) = \frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}$|$I_x(\alpha,\beta)$||$\frac{\alpha}{\alpha+\beta}$|$\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$|
 
 geometric and exponential distributions are memoryless. exponential extends geometric to continuous values.  
 Poisson binomial, extends binomial, $p_i$ different but known for each trial. $E(X)=\sum_ip_i, V(X)=\sum_ip_i(1-p_i)$  
