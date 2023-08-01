@@ -135,6 +135,13 @@ _Convolution formula_: $Z=X+Y, p_Z(z)=\sum_xp_X(x)\cdot p_Y(z-x), f_Z(z)=\int_xf
 Sum of a Random number of iid variables X. $S=\sum_NX_i, E[S]=E[N]E[X], Var(S) = E[N]Var(X) + E[X]^2Var(N)$  
 Absolute value of Y=|X|: $p_Y(y) = p_X(y) + p_X(-y), f_Y(y) = f_X(y) + f_X(-y)$  
 
+**Bayesian Inference**  
+Problem data: $p_\theta(.), p_{X|\Theta(.|.)}$  
+Given value x of X, find $p_{\Theta|X}(.|x)$ using one of 4 variations of Bayes rule, pmf or pdf.  
+Maximum a posteriori (MAP) estimator: $\hat{\Theta}_{MAP}$ maximizes $p_{\Theta|X}(\theta|x)$  
+Least Mean Squares (LMS) estimator: $\hat{\Theta}_{LMS} = E[\Theta|X=x]$  
+Performance estimation of estimator: $P(\hat{\Theta}\neq \Theta), E[(\hat{\Theta}-\Theta)^2],P(\hat{\Theta}\neq \Theta|X=x), E[(\hat{\Theta}-\Theta)^2|X=x]$
+
 **Moment Generating Functions**  
 $M_X(t)=E[e^{tX}], M_{aX+b} = e^{bt}M_X(at), E[X]=M_X'(0), E[X^n]=M_X^{(n)}(0)$  
 Properties: Positive, M(0)=1, Finite support, MGF of sum is product of MGF, if same MGF then same distribution.
