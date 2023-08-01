@@ -188,3 +188,6 @@ u, v (1,d) column vectors. $u^T.v$ is a scalar, inner product or dor product. $u
 determinant of matrix = ad-bc = product of eigenvalues.  
 trace of matrix = sum of diagonal entries = sum of eigenvalues.  
 
+**Convergence**  
+_Convergence in probability_: a sequence $Y_n$ converges in probability to a number a if for any $\epsilon >0, \lim P(|Y_n-a| \ge \epsilon) = 0$.  
+
