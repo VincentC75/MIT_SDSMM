@@ -123,9 +123,9 @@ Poisson approximates Binomial for $\lambda=np, n\gg1 \gg p$
 Binomial: n Bernoulli trials, count successes. Binomial ($n, p=\lambda /n$ ) converges to Poisson($\lambda$).  
 Geometric: Number of Bernoulli trials until first success. Any discrete memoryless distribution is geometric.  
 Negative binomial distribution: Number of Bernouilli trials until r's success $\binom{n-1}{r-1}p^r(1-p)^{n-r}$  
-normal distribution approximates the binomial distribution. Linear transformations of normal distributions are normal.  
+Linear transformations of normal distributions are normal.  
 $X \sim N(\mu,\sigma^2), Y=aX+b, Y \sim N(a\mu+b,a^2\sigma^2), Z=\frac{X-\mu}{\sigma} \sim N(0,1), 68, 95, 99.7 rule$  
-Normal approximation of binomial: $X \sim B_{n,p} \sim N(np,np(1-p))$  
+Normal approximation of binomial: $X \sim B_{n,p} \sim N(np,np(1-p))$. 1/2 correction for integer approximation.  
 
 **Derived Distributions, Functions of Random variables**  
 $Y=aX+B: p_Y(y)=p_X(\frac{y-b}{a}), f_Y(y) = \frac{1}{|a|}f_X(\frac{y-b}{a})$  
@@ -161,6 +161,8 @@ X_1,X_2... be iid with finite $\mu$ and $\sigma$, as $n \to \infty$ the distribu
 $P(\overline{X^n} \leq \alpha) \approx \Phi(\frac{\alpha - \mu}{\sigma / \sqrt{n}})$
 Central Limit Theorem: $\bar{X}\sim\mathcal{N}(\mu,\frac{\sigma^2}{n})$
 
+**Bernouilli and Poisson process**  
+_Poisson Process_: $\lambda$ rate per time unit, $\tau$ time interval. $E[N_\tau]=\lambda \tau, Var(N_\tau)=\lambda\tau, P(k,\tau)=\frac{(\lambda \tau)^k e^{-\lambda \tau}}{k!}$  
 **Statistics - Estimation**  
 A _statistic_ is any measurable function of the sample  
 An _estimator_ of $\theta$ is a statistic $\hat{\theta} = \hat{\theta}(X_1,X_2,...X_n)$ whose expression does not depend on $\theta$.  
@@ -197,4 +199,6 @@ trace of matrix = sum of diagonal entries = sum of eigenvalues.
 
 **Convergence**  
 _Convergence in probability_: a sequence $Y_n$ converges in probability to a number a if for any $\epsilon >0, \lim P(|Y_n-a| \ge \epsilon) = 0$.  
-
+Convergence in probability of random variables does not imply converge of expectations.
+Convergence in distribution: the sequence CDF converges to a CDF
+Convergence with probability 1 (almost surely ?) 
