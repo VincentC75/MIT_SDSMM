@@ -128,6 +128,8 @@ Poisson approximates Binomial for $\lambda=np, n\gg1 \gg p$
 Binomial: n Bernoulli trials, count successes. Binomial ($n, p=\lambda /n$ ) converges to Poisson($\lambda$).  
 Geometric: Number of Bernoulli trials until first success. Any discrete memoryless distribution is geometric.  
 Negative binomial distribution: Number of Bernouilli trials until r's success $\binom{n-1}{r-1}p^r(1-p)^{n-r}$  
+Gamma distribution: $\alpha$ is the shape parameter, $\beta$ is the inverse scale parameter.  
+A chi squared distribution with n degrees of freedom is a special case of the gamma distribution $\Gamma(n/2,1/2)$  
 Linear transformations of normal distributions are normal.  
 $X \sim N(\mu,\sigma^2), Y=aX+b, Y \sim N(a\mu+b,a^2\sigma^2), Z=\frac{X-\mu}{\sigma} \sim N(0,1), 68, 95, 99.7 rule$  
 Normal approximation of binomial: $X \sim B_{n,p} \sim N(np,np(1-p))$. 1/2 correction for integer approximation.  
