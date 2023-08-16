@@ -112,6 +112,7 @@ Bernouilli|$k\in \{0,1\}$|$p_p(k)=p^k (1-p)^{1-k}$||$1+p(e^t-1)$|$p$|$p(1-p)$
 Binomial|$k\in \{0,1,...,n\}$|$p_{n,p}(k)=\binom{n}{k}p^k(1-p)^{n-k}$||$[1+p(e^t-1)]^n$|$np$|$np(1-p)$
 Geometric|$k\in \{1,2,,...,n\}$|$p_p(k)=p(1-p)^{k-1}$|$1-(1-p)^k$||$\frac{1}{p}$|$\frac{1-p}{p^2}$
 Poisson|$k \geq 0, \lambda \geq 0$|$p_{\lambda}(k)=\frac{\lambda^ke^{-\lambda}}{k!}$||$e^{\lambda(e^t-1)}$|$\lambda$|$\lambda$
+Negative Binomial|$k\in \{0,1,...,n\}$|$p_{r,p}(k)=\binom{k+r-1}{k}(1-p)^kp^r$|$I_p(r,k+1)$||$\frac{r(1-p)}{p}$|$\frac{r(1-p)}{p^2}$|
 
 Continuous|support|pdf|cdf|mgf|mean|variance|
 :---|:-----|:--------|:---|:------|:---|:---|
@@ -167,6 +168,13 @@ Central Limit Theorem: $\bar{X}\sim\mathcal{N}(\mu,\frac{\sigma^2}{n})$
 
 **Bernouilli and Poisson process**  
 _Poisson Process_: $\lambda$ rate per time unit, $\tau$ time interval. $E[N_\tau]=\lambda \tau, Var(N_\tau)=\lambda\tau, P(k,\tau)=\frac{(\lambda \tau)^k e^{-\lambda \tau}}{k!}$  
+
+Process|Times of Arrival|Arrival Rate|PMF of # of Arrivals|Interarrival Time Distribution|Time to kth Arrival|
+---|---|---|---|---|---|
+Poisson|Continuous|$\lambda$/unit time|Poisson|Exponential|Erlang|
+Bernouilli|Discrete|p/trial|Binomial|Geometric|Pascal (negative binomial)|
+
+
 **Statistics - Estimation**  
 A _statistic_ is any measurable function of the sample  
 An _estimator_ of $\theta$ is a statistic $\hat{\theta} = \hat{\theta}(X_1,X_2,...X_n)$ whose expression does not depend on $\theta$.  
