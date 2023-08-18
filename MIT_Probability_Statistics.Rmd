@@ -175,7 +175,7 @@ Process|Times of Arrival|Arrival Rate|PMF of # of Arrivals|Interarrival Time Dis
 ---|---|---|---|---|---|
 Poisson|Continuous|$\lambda$/unit time|Poisson|Exponential|Erlang|
 Bernouilli|Discrete|p/trial|Binomial|Geometric|Pascal (negative binomial)|
-
+The sum of independent Poisson random variables with meams/parameters $\mu$ and $\nu$ is Poisson with mean/parameter $\mu+\nu$.  
 
 **Statistics - Estimation**  
 A _statistic_ is any measurable function of the sample  
