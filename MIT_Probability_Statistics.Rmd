@@ -121,6 +121,7 @@ Exponential|$x\in[0,\infty)$|$f_{\lambda}(x)=\lambda e^{-\lambda x}$|$1-e^{-\lam
 Gaussian|$x\in \mathbb{R}$|$f_{(\mu,\sigma^2)}(x) = \frac{1}{\sigma \sqrt{2 \pi} } e^{-\frac{(x - \mu)^2}{2 \sigma^2} }$|$\Phi(x)$|$e^{\mu t+\frac{\sigma^2t^2}{2}}$|$\mu$|$\sigma^2$
 Beta|$x\in[0,1]$|$f_{\alpha,\beta}(x) = \frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}$|$I_x(\alpha,\beta)$||$\frac{\alpha}{\alpha+\beta}$|$\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$|
 Gamma|$x\in(0,\infty)$|$f_{\alpha,\beta}(x)=\frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x}$|||$\frac{\alpha}{\beta}$|$\frac{\alpha}{\beta^2}$
+Erlang|$x\in(0,\infty)$|$f(x;k,\lambda)=\frac{\lambda^k x^{k-1} e^{-\lambda x}}{(k-1)!}$|$1-\sum_{n=0}^{k-1}\frac{1}{n!}e^{-\lambda x}(\lambda x)^n$||$\frac{k}{\lambda}$|$\frac{k}{\lambda^2}$
 
 geometric and exponential distributions are memoryless. exponential extends geometric to continuous values.  
 Poisson binomial, extends binomial, $p_i$ different but known for each trial. $E(X)=\sum_ip_i, V(X)=\sum_ip_i(1-p_i)$  
@@ -176,7 +177,8 @@ Poisson|Continuous|$\lambda$/unit time|Poisson|Exponential|Erlang|
 Bernouilli|Discrete|p/trial|Binomial|Geometric|Pascal (negative binomial)|
 _Poisson Process_: $\lambda$ rate per time unit, $\tau$ time interval. $E[N_\tau]=\lambda \tau, Var(N_\tau)=\lambda\tau, P(k,\tau)=\frac{(\lambda \tau)^k e^{-\lambda \tau}}{k!}, f_{Y_k}=\frac{\lambda^k y^{k-1}e^{-\lambda y}}{(k-1)!}$ (Erlang).   
 The sum of independent Poisson random variables with meams/parameters $\mu$ and $\nu$ is Poisson with mean/parameter $\mu+\nu$.  
-In a merged Poisson process with mean/parameter $\mu+\nu$, the probability it originates from thge first or seconf process is $\frac{\mu}{\mu+\nu}$ and $\frac{\nu}{\mu+\nu}$.
+In a merged Poisson process with mean/parameter $\mu+\nu$, the probability it originates from the first or second4 process is $\frac{\mu}{\mu+\nu}$ and $\frac{\nu}{\mu+\nu}$.  
+_Random incidence_ paradox in the poisson process. E[inter arrival time] = $\frac{1}{\lambda}$ but if measured at random time = $\frac{2}{\lambda}$ because of bias tower longer intervals.  
 
 **Statistics - Estimation**  
 A _statistic_ is any measurable function of the sample  
