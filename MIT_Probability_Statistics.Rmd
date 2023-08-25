@@ -180,6 +180,9 @@ The sum of independent Poisson random variables with meams/parameters $\mu$ and 
 In a merged Poisson process with mean/parameter $\mu+\nu$, the probability it originates from the first or second4 process is $\frac{\mu}{\mu+\nu}$ and $\frac{\nu}{\mu+\nu}$.  
 _Random incidence_ paradox in the poisson process. E[inter arrival time] = $\frac{1}{\lambda}$ but if measured at random time = $\frac{2}{\lambda}$ because of bias tower longer intervals.  
 
+**Markov chains**  
+_Markov property_: The future only depend on the current state, not hte past.  
+
 **Statistics - Estimation**  
 A _statistic_ is any measurable function of the sample  
 An _estimator_ of $\theta$ is a statistic $\hat{\theta} = \hat{\theta}(X_1,X_2,...X_n)$ whose expression does not depend on $\theta$.  
