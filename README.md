@@ -19,7 +19,7 @@ Math:
 * [Derive](https://www.dcode.fr/derivee)
 * [Probability Book](https://bookdown.org/probability/beta/)
 * Review:
-  - [Single Variable Calculus](https://www.edx.org/xseries/mitx-18.01x-single-variable-calculus)
+  - [Single Variable Calculus](https://ocw.mit.edu/courses/18-01-calculus-i-single-variable-calculus-fall-2020/)
   - [Multivariate Calculus](https://ocw.mit.edu/courses/mathematics/18-02-multivariable-calculus-fall-2007/)
   - [Linear Algebra](https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/)
 
