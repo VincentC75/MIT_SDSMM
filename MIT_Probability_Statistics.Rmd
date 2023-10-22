@@ -110,6 +110,7 @@ Discrete|support|pmf|cdf|mgf|mean|variance|
 :---|:-----|:--------|:---|:------|:---|:---|
 Bernouilli|$k\in \{0,1\}$|$p_p(k)=p^k (1-p)^{1-k}$||$1+p(e^t-1)$|$p$|$p(1-p)$
 Binomial|$k\in \{0,1,...,n\}$|$p_{n,p}(k)=\binom{n}{k}p^k(1-p)^{n-k}$||$[1+p(e^t-1)]^n$|$np$|$np(1-p)$
+HyperGeometric|$k\in \{1,2,,...,n\}$|$p_p(k)=\frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}}$|||$\frac{nK}{N}$|$n\frac{K}{N}\frac{N-K}{N}\frac{N-n}{N-1}$
 Geometric|$k\in \{1,2,,...,n\}$|$p_p(k)=p(1-p)^{k-1}$|$1-(1-p)^k$||$\frac{1}{p}$|$\frac{1-p}{p^2}$
 Poisson|$k \geq 0, \lambda \geq 0$|$p_{\lambda}(k)=\frac{\lambda^ke^{-\lambda}}{k!}$||$e^{\lambda(e^t-1)}$|$\lambda$|$\lambda$
 Negative Binomial|$k\in \{0,1,...,n\}$|$p_{r,p}(k)=\binom{k+r-1}{k}(1-p)^kp^r$|$I_p(r,k+1)$||$\frac{r(1-p)}{p}$|$\frac{r(1-p)}{p^2}$|
@@ -126,7 +127,7 @@ Erlang|$x\in(0,\infty)$|$f(x;k,\lambda)=\frac{\lambda^k x^{k-1} e^{-\lambda x}}{
 geometric and exponential distributions are memoryless. exponential extends geometric to continuous values.  
 Poisson binomial, extends binomial, $p_i$ different but known for each trial. $E(X)=\sum_ip_i, V(X)=\sum_ip_i(1-p_i)$  
 Poisson approximates Binomial for $\lambda=np, n\gg1 \gg p$  
-Binomial: n Bernoulli trials, count successes. Binomial ($n, p=\lambda /n$ ) converges to Poisson($\lambda$).  
+Binomial: n Bernoulli trials, count successes. Binomial ($n, p=\lambda /n$ ) converges to Poisson($\lambda$). Hypergeometric ~ binomial without replacement.   
 Geometric: Number of Bernoulli trials until first success. Any discrete memoryless distribution is geometric.  
 Negative binomial distribution: Number of Bernouilli trials until r's success $\binom{n-1}{r-1}p^r(1-p)^{n-r}$  
 Gamma distribution: $\alpha$ is the shape parameter, $\beta$ is the inverse scale parameter.  
@@ -182,6 +183,13 @@ _Random incidence_ paradox in the poisson process. E[inter arrival time] = $\fra
 
 **Markov chains**  
 _Markov property_: The future only depend on the current state, not hte past.  
+$r_{ij}(n) = \sum_{k=1}^m r_{ik}(n-1)p_{kj}$  
+state i is _recurrent_ if starting from i and from wherever you go the is a path back to i. Otherwise state is _transient_.  
+_Recurrent class_: collection of recurrent states communicating only between each other.  
+The states in a recurrent class are _periodic_ if they can be grouped into d>1 groups so that all transitions from one group lead to the next group. Cannot be periodic if there are self transitions.  
+Convergence to steady state probabilities if all recurrent states are in a single class and this class is not periodic.  
+_Balance equations_: $\pi_j = \sum_{k=1}^m \pi_k p_{kj}$.  
+
 
 **Statistics - Estimation**  
 A _statistic_ is any measurable function of the sample  
@@ -208,7 +216,8 @@ Hypothesis = Assumption about parameters. simple or composite, one-sided or two-
 Null hypothesis, $H_0$ is the _status_.  
 Determine the distribution of a test statistic under $H_0$. Reject $H_0$ if small probability.
 Type-I error: reject $H_0$ when $H_0$ is true.  
-Significance level $\alpha$: If $H_0$ is true, accept $H_A$ with probability $\leq \alpha. P_{H_0}(X\geq X_\alpha) \leq \alpha$.  
+Significance level $\alpha$ (probability of Type I error): If $H_0$ is true, accept $H_A$ with probability $\leq \alpha. P_{H_0}(X\geq X_\alpha) \leq \alpha$.  
+Operating Characteristic $\beta$ (probability of Type II error). $1-\alpha$ = confidence level, $1-\beta$ = power.  
 Method: critical-value or p-value.  
 z-test ($\sigma$ known) or t-test ($\sigma$ unknown).  
 
