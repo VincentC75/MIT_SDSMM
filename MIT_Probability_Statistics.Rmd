@@ -220,6 +220,8 @@ Significance level $\alpha$ (probability of Type I error): If $H_0$ is true, acc
 Operating Characteristic $\beta$ (probability of Type II error). $1-\alpha$ = confidence level, $1-\beta$ = power.  
 Method: critical-value or p-value.  
 z-test ($\sigma$ known) or t-test ($\sigma$ unknown).  
+_Fisher Exact Test_: interested in "sharp null", treatment effect is 0 for everyone (vs on average).  
+
 
 **Matrices and vectors**  
 u, v (1,d) column vectors. $u^T.v$ is a scalar, inner product or dor product. $u.v^T$ is (d,d) matrix = outer product.  
