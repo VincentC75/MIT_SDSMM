@@ -16,6 +16,7 @@ $A \cap (B \cup C) = (A \cap B) \cup (A \cap C), A \cup (B \cap C) = (A \cup B) 
 De Morgan's laws: $(A \cup B)^c = A^c \cap B^c$,
 $(A \cap B)^c = A^c \cup B^c, (\cap_nS_n)^c=\cup_nS_n^c, (\cup_nS_n)^c=\cap_nS_n^c$  
 Bonferroni's inequality: $P(A_1\cap A_2)\ge P(A_1) + P(A_2) -1, P(A_1\cap A_2 ...\cap A_n)\ge P(A_1) + P(A_2) + ... + P(A_n) -(n-1)$  
+Union Bound: $P(A \cup B) \le P(A) + P(B)$  
 inclusion-exclusion:  
 $P(A \cup B) = P(A) + P(B) - P(A \cap B)$  
 $P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C) -P(B \cap C) + P(A \cap B \cap C)$  
@@ -46,7 +47,7 @@ ways to write n as a sum of k non negative integers, when order matters: $\binom
 
 **Series and limits**  
 infinite series $\sum_{i=0}^\infty a_i$ converges if $\sum_{i=0}^\infty |a_i| < \infty$. In that case the order of terms can be permuted.  
-Geometric: $\sum_{0}^{+\infty} aq^n = \frac{a}{1-q}, q<1$. Partial sum $\sum_{0}^{n-1} aq^n = \frac{a(1-q^n)}{1-q}$ for q<1, $an$ for q=1.
+Geometric: $\sum_{0}^{+\infty} aq^n = \frac{a}{1-q}, q<1$. Partial sum $\sum_{0}^{n-1} aq^n = \frac{a(1-q^n)}{1-q}$ for q<1, $an$ for q=1.  
 Taylor expension, Maclaurin for exponential : $e^x = \sum_{n=0}^{\infty}\frac{x^n}{n!}$  
 Euler number: $\lim_{n\to\infty} (1 + \frac{1}{n})^n = e, \lim_{n\to\infty} (1 + \frac{a}{n})^n = e^a$  
 Harmonic Sum: $\frac{1}{1}+\frac{1}{2}+...+\frac{1}{n} \to ln(n)+0.5777$  
@@ -230,7 +231,11 @@ determinant of matrix = ad-bc = product of eigenvalues.
 trace of matrix = sum of diagonal entries = sum of eigenvalues.  
 
 **Convergence**  
-_Convergence in probability_: a sequence $Y_n$ converges in probability to a number a if for any $\epsilon >0, \lim P(|Y_n-a| \ge \epsilon) = 0$.  
-Convergence in probability of random variables does not imply converge of expectations.
-Convergence in distribution: the sequence CDF converges to a CDF
-Convergence with probability 1 (almost surely ?) 
+_Convergence almost surely_:  $P[\{w:T_n(w) \to T(w)\}] = 1$  
+_Convergence in probability_: a sequence $Y_n$ converges in probability to a number a if for any $\epsilon >0, P(|Y_n-a| \ge \epsilon) = 0$.  
+Convergence in probability of random variables does not imply converge of expectations.  
+_Convergence in distribution_: the sequence CDF converges to a CDF. $E[f(T_n)]\to E[f(T)]$  
+Convergence almost sureley > in probability > in distribution  
+Addition, Multiplication, and Division preserves convergence almost surely and convergence in probability.  
+For convergence in distribution, _Slutsky's theorem_ $T_n \to T, U_n \to u, T_n+U_n\to T+u, TnUn \to Tu, Tn/Un \to T/u (u \neq0)$  
+_Continuous Mapping Theorem_: if $f$ continuous and $T_n \to T$, $f(T_n) \to f(T)$  
