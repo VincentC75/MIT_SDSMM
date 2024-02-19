@@ -51,7 +51,10 @@ Geometric: $\sum_{0}^{+\infty} aq^n = \frac{a}{1-q}, q<1$. Partial sum $\sum_{0}
 Taylor expension, Maclaurin for exponential : $e^x = \sum_{n=0}^{\infty}\frac{x^n}{n!}$  
 Euler number: $\lim_{n\to\infty} (1 + \frac{1}{n})^n = e, \lim_{n\to\infty} (1 + \frac{a}{n})^n = e^a$  
 Harmonic Sum: $\frac{1}{1}+\frac{1}{2}+...+\frac{1}{n} \to ln(n)+0.5777$  
-$\frac{1}{1^2}+\frac{1}{2^2}+...+\frac{1}{(n-1)^2}+\frac{1}{n^2} \to \frac{\pi^2}{6}$
+$\frac{1}{1^2}+\frac{1}{2^2}+...+\frac{1}{(n-1)^2}+\frac{1}{n^2} \to \frac{\pi^2}{6}$  
+
+**Quadratic Root**
+$\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$  
 
 **Integration by parts**  
 $\int u.dv = uv - \int v.du$  
@@ -190,7 +193,6 @@ _Recurrent class_: collection of recurrent states communicating only between eac
 The states in a recurrent class are _periodic_ if they can be grouped into d>1 groups so that all transitions from one group lead to the next group. Cannot be periodic if there are self transitions.  
 Convergence to steady state probabilities if all recurrent states are in a single class and this class is not periodic.  
 _Balance equations_: $\pi_j = \sum_{k=1}^m \pi_k p_{kj}$.  
-
 
 **Statistics - Estimation**  
 A _statistic_ is any measurable function of the sample  
