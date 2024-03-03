@@ -95,6 +95,11 @@ $\rho_{aX+b,cY+d} = sign(ac).\rho_{X,Y}$
 Cauchy-Schwartz inequality: $|E(XY)| \leq \sqrt{E(X^2)}.\sqrt{E(Y^2)}, |\sigma_{x,Y}| \leq \sigma_X.\sigma_Y, |\rho_{X,Y}| \leq 1$  
 Independent implies uncorrelated. Uncorrelated does not imply independent.  
 
+**Distributions**  
+A parameter $\theta$ is identifiable if the map $\theta \to P_\theta$ is injective ($P_\theta=P_{\theta'} \implies \theta = \theta'$).  
+_Total Variation_ $TV(P_\theta,P_{\theta'}) = max_{A\subset E}|P_\theta(A)-P_{\theta'}(A)| = \frac{1}{2}\sum_{x\in E}|p_\theta(x) - p_{\theta'}(x)|$ if discrete or $\frac{1}{2}\int_ E|p_\theta(x) - p_{\theta'}(x)|$ if continuous.  
+TV $\in [0,1]$, TV=1 if disjoint support.
+
 ...|Discrete|Continuous|
 ---|---|---|
 Mass vs Density|PMF: $p_X(x), p_{X,Y}(x,y), p_{X|Y}(x|y), p_{X|A}(x|A)$|PDF: $f_X(x), f_{X,Y}(x,y), f_{X|Y}(x|y), f_{X|A}(x|A)$|
@@ -114,6 +119,7 @@ Discrete|support|pmf|cdf|mgf|mean|variance|
 :---|:-----|:--------|:---|:------|:---|:---|
 Bernouilli|$k\in \{0,1\}$|$p_p(k)=p^k (1-p)^{1-k}$||$1+p(e^t-1)$|$p$|$p(1-p)$
 Binomial|$k\in \{0,1,...,n\}$|$p_{n,p}(k)=\binom{n}{k}p^k(1-p)^{n-k}$||$[1+p(e^t-1)]^n$|$np$|$np(1-p)$
+Uniform|$k\in \{a,a+1,...,b\}$|$p_{n}(k)=\frac{1}{n}, n=b-a+1$|$\frac{\lfloor k\rfloor -a+1}{n}$||$\frac{a+b}{2}$|$\frac{a+b}{2}$    
 HyperGeometric|$k\in \{1,2,,...,n\}$|$p_p(k)=\frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}}$|||$\frac{nK}{N}$|$n\frac{K}{N}\frac{N-K}{N}\frac{N-n}{N-1}$
 Geometric|$k\in \{1,2,,...,n\}$|$p_p(k)=p(1-p)^{k-1}$|$1-(1-p)^k$||$\frac{1}{p}$|$\frac{1-p}{p^2}$
 Poisson|$k \geq 0, \lambda \geq 0$|$p_{\lambda}(k)=\frac{\lambda^ke^{-\lambda}}{k!}$||$e^{\lambda(e^t-1)}$|$\lambda$|$\lambda$
