@@ -190,7 +190,10 @@ The states in a recurrent class are _periodic_ if they can be grouped into d>1 g
 Convergence to steady state probabilities if all recurrent states are in a single class and this class is not periodic.  
 _Balance equations_: $\pi_j = \sum_{k=1}^m \pi_k p_{kj}$.  
 
-
+**Statistics - Distance between probalility distributions**  
+_Total Variation_ $TV(P_\theta,P_{\theta'})=max_{A \in E}|P_\theta(A)-P_{\theta'}(A)|$  
+_Kullback-Leibler (KL) divergence_ $KL(P_\theta,P_{\theta'})=\sum_{x \in E}p_\theta(x)log(\frac{p_\theta(x)}{p_{\theta'}(x)})$ if discrete, $=\int_Ef_\theta(x)log(\frac{f_\theta(x)}{f_{\theta'}(x)})dx$ if continuous.  
+ 
 **Statistics - Estimation**  
 A _statistic_ is any measurable function of the sample  
 An _estimator_ of $\theta$ is a statistic $\hat{\theta} = \hat{\theta}(X_1,X_2,...X_n)$ whose expression does not depend on $\theta$.  
