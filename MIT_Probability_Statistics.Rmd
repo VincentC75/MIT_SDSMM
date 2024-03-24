@@ -97,8 +97,6 @@ Independent implies uncorrelated. Uncorrelated does not imply independent.
 
 **Distributions**  
 A parameter $\theta$ is identifiable if the map $\theta \to P_\theta$ is injective ($P_\theta=P_{\theta'} \implies \theta = \theta'$).  
-_Total Variation_ $TV(P_\theta,P_{\theta'}) = max_{A\subset E}|P_\theta(A)-P_{\theta'}(A)| = \frac{1}{2}\sum_{x\in E}|p_\theta(x) - p_{\theta'}(x)|$ if discrete or $\frac{1}{2}\int_ E|p_\theta(x) - p_{\theta'}(x)|$ if continuous.  
-TV $\in [0,1]$, TV=1 if disjoint support.
 
 ...|Discrete|Continuous|
 ---|---|---|
@@ -201,7 +199,8 @@ Convergence to steady state probabilities if all recurrent states are in a singl
 _Balance equations_: $\pi_j = \sum_{k=1}^m \pi_k p_{kj}$.  
 
 **Statistics - Distance between probalility distributions**  
-_Total Variation_ $TV(P_\theta,P_{\theta'})=max_{A \in E}|P_\theta(A)-P_{\theta'}(A)|$  
+_Total Variation_ $TV(P_\theta,P_{\theta'})=max_{A \subset E}|P_\theta(A)-P_{\theta'}(A)| = \frac{1}{2}\sum_{x\in E}|p_\theta(x) - p_{\theta'}(x)|$ (discrete) $\frac{1}{2}\int_ E|p_\theta(x) - p_{\theta'}(x)|$ (continuous).  
+TV $\in [0,1]$, TV=1 if disjoint support.  
 _Kullback-Leibler (KL) divergence_ $KL(P_\theta,P_{\theta'})=\sum_{x \in E}p_\theta(x)log(\frac{p_\theta(x)}{p_{\theta'}(x)})$ if discrete, $=\int_Ef_\theta(x)log(\frac{f_\theta(x)}{f_{\theta'}(x)})dx$ if continuous.  
 
 **Statistics - Estimation**  
