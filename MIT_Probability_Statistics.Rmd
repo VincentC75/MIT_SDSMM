@@ -34,8 +34,7 @@ functions from A to B: $|B|^{|A|}$
 **Permutations and combinations**  
 Permutations: $n!$, Partial permutations: $\frac{n!}{(n-k)!}$, Combinations: $\frac{n!}{k!(n-k)!}$  
 All possible subsets of a set: $\sum_{i=0}^n \binom{n}{k} = 2^n$  
-_Binomial coefficient_: $\binom{n}{k} = \frac{n!}{k!(n-k)!}= \frac{n}{k} \binom{n-1}{k-1}$  
-_Multinomial coefficient_: $\binom{n}{k_1,k_2,k_3} = \frac{n!}{k_1!k_2!k_3!}$  
+_Binomial coefficient_: $\binom{n}{k} = \frac{n!}{k!(n-k)!}= \frac{n}{k} \binom{n-1}{k-1}$, _Multinomial coefficient_: $\binom{n}{k_1,k_2,k_3} = \frac{n!}{k_1!k_2!k_3!}$  
 Binomial theorem: $(a+b)^n = \sum_{i=0}^n \binom{n}{i}a^{n-i}b^i$  
 Multinomial theorem: $(a_1+a_2+...+a_m)^n = \sum_{k_1+k_2+...+k_m=n}\binom{n}{k_1,k_2,...,k_m}\prod_{t=1}^{m}a_t^{k_t}$  
 Pascal's identity: $\binom{n+1}{k}=\binom{n}{k}+\binom{n}{k-1}$  
