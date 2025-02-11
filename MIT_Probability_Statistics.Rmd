@@ -1,5 +1,5 @@
 ---
-#title: "USCD Statistics notes"
+#title: "MIT Probability Statistics notes"
 #author: "Vincent Courtois"
 geometry: "left=0.5cm,right=0.5cm,top=1cm,bottom=0.5cm"
 output:

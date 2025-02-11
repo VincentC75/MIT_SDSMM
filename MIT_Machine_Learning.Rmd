@@ -1,0 +1,16 @@
+---
+title: "MIT Machine Learning notes"
+
+author: "Vincent Courtois"
+geometry: "left=0.5cm,right=0.5cm,top=1cm,bottom=0.5cm"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+**Linear Classifiers**  
+_Perceptron Algorithm_ $\theta=\theta_0=0.$ if $y_i(\theta.x_i)\le0$ then $\theta=\theta+y_ix_i, \theta_0=\theta_0+y_i$  
