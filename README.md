@@ -7,9 +7,8 @@ The goal is to prepare documents that can be used during the exams.
 
 Markdown References:
 
-* [R Markdown Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
-* [Markdown latex 1](https://victoromondi1997.github.io/blog/latex/markdown/2020/07/03/Markdown-LaTeX.html)
-* [Markdown latex 2](https://rpruim.github.io/s341/S19/from-class/MathinRmd.html)
+* [R Markdown Cheat Sheet](https://rstudio.github.io/cheatsheets/html/rmarkdown.html)
+* [Markdown latex](https://rpruim.github.io/s341/S19/from-class/MathinRmd.html)
 * [Latex Mathematical symbols](https://www.caam.rice.edu/~heinken/latex/symbols.pdf)
 
 
