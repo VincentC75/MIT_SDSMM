@@ -12,6 +12,12 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+__Courses__: [Probability](https://learning.edx.org/course/course-v1:MITx+6.431x+2T2021/home) [Statistics](https://learning.edx.org/course/course-v1:MITx+18.6501x+1T2022/home) [Applications](https://learning.edx.org/course/course-v1:MITx+6.419x+2T2022/home)
+[Social](https://courses.mitxonline.mit.edu/learn/course/course-v1:MITxT+14.310x+1T2025/home)
+[Machine Learning](https://learning.edx.org/course/course-v1:MITx+6.86x+3T2020/home)  
+__Tools__: [Derive](https://www.derivative-calculator.net/) [Integrate](https://www.integral-calculator.com/) [Graph](https://www.desmos.com/calculator)
+
+
 \textcolor{green}{\textbf{Classification}}  
   
 \textcolor{blue}{\textbf{Linear Classifier}}  
@@ -97,4 +103,12 @@ __Feed Forward Networks__
 __Recurring Neural Networks__  
 __LSTM Long Short Term Memory Network__  
 
+**Markov chains**  
+_Markov property_: The future only depend on the current state, not the past.  
+$r_{ij}(n) = \sum_{k=1}^m r_{ik}(n-1)p_{kj}$  
+state i is _recurrent_ if starting from i and from wherever you go the is a path back to i. Otherwise state is _transient_.  
+_Recurrent class_: collection of recurrent states communicating only between each other.  
+The states in a recurrent class are _periodic_ if they can be grouped into d>1 groups so that all transitions from one group lead to the next group. Cannot be periodic if there are self transitions.  
+Convergence to steady state probabilities if all recurrent states are in a single class and this class is not periodic.  
+_Balance equations_: $\pi_j = \sum_{k=1}^m \pi_k p_{kj}$.  
 

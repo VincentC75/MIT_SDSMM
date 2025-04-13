@@ -11,7 +11,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-Courses: [Probability](https://learning.edx.org/course/course-v1:MITx+6.431x+2T2021/home) [Statistics](https://learning.edx.org/course/course-v1:MITx+18.6501x+1T2022/home) [Applications](https://learning.edx.org/course/course-v1:MITx+6.419x+2T2022/home)1-
+Courses: [Probability](https://learning.edx.org/course/course-v1:MITx+6.431x+2T2021/home) [Statistics](https://learning.edx.org/course/course-v1:MITx+18.6501x+1T2022/home) [Applications](https://learning.edx.org/course/course-v1:MITx+6.419x+2T2022/home)
 [Social](https://courses.mitxonline.mit.edu/learn/course/course-v1:MITxT+14.310x+1T2025/home)  
 Tools: [Derive](https://www.derivative-calculator.net/) [Integrate](https://www.integral-calculator.com/) [Graph](https://www.desmos.com/calculator)
 
