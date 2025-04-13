@@ -12,5 +12,16 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-**Linear Classifiers**  
-_Perceptron Algorithm_ $\theta=\theta_0=0.$ if $y_i(\theta.x_i)\le0$ then $\theta=\theta+y_ix_i, \theta_0=\theta_0+y_i$  
+## Linear Classifiers  
+
+**Perceptron Algorithm** $\theta=\theta_0=0.$ if $y_i(\theta.x_i)\le0$ then $\theta=\theta+y_ix_i, \theta_0=\theta_0+y_i$  
+**Large Margin Optimization**  
+__signed distance to boundary__ $\frac{y^{(i)}(\theta.x^{(i)}+\theta_0)}{||\theta||}$. Margins are $\frac{1}{||\theta||}$ away from boundary.  
+__hinge loss__ $Loss_h(y^{(i)}(\theta.x^{(i)}+\theta_0)) = Loss_h(z) = 0$ if z>=1, $1-z$ if z<1  
+__objective function__ $J(\theta,\theta_0) = \frac{1}{n}\Sigma_{i=1}^nLoss_h(y^{(i)}(\theta.x^{(i)}+\theta_0)) + \frac{\lambda}{2}||\theta||^2$  
+
+---  
+
+## Optimization algorithms
+
+**Stochastic gradient descent** $\theta \leftarrow \theta - \eta_t\nabla_\theta[Loss_h(y^{(i)}\theta.x^{(i)})+\frac{\lambda}{2}||\theta||^2]$
