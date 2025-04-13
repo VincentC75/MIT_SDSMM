@@ -1,7 +1,7 @@
 ---
-title: "MIT Machine Learning notes"
+title: "MIT SDS Capstone part 2 - Machine Learning CheatSheet"
 
-author: "Vincent Courtois"
+#author: "Vincent Courtois"
 geometry: "left=0.5cm,right=0.5cm,top=1cm,bottom=0.5cm"
 output:
   pdf_document: default
@@ -12,20 +12,24 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+\textcolor{green}{\textbf{Classification}}  
+  
 \textcolor{blue}{\textbf{Linear Classifier}}  
 $h(X;\theta,\theta_0) = sign(\theta.X+\theta_0)$  
+Training Error $\epsilon_n(\theta, \theta_0)=\frac{1}{n}\Sigma_{i=1}^n[y^{(i)}(\theta.x^{(i)}+\theta_0 \le 0]$
 Decision boundary $X.\theta+\theta_0 = 0$  
 If $y^{i}(\theta.X^{(i)}+\theta_0) >0$ for all i, then examples are linearly separable.  
 __Perceptron Algorithm__  
-$\theta=\theta_0=0.$ if $y^{(i)}(\theta.X^{(i)}+\theta_0)\le0$ then $\left\{
+$\theta=\theta_0=0.$ if $y^{(i)}(\theta.x^{(i)}+\theta_0)\le0$ then $\left\{
 \begin{aligned}
-\theta=\theta+y^{(i)}X^{(i)}\\
+\theta=\theta+y^{(i)}x^{(i)}\\
 \theta_0=\theta_0+y^{(i)}
 \end{aligned}
 \right.
 $  
 
 \textcolor{blue}{\textbf{Large Margin Optimization}}  
+__Decision Boundary__ $\theta.x+\theta_0=0$ Margins: $\theta.x+\theta_0= \pm 1$  
 __Hinge Loss__  
 $Loss_h(y^{(i)}(\theta.x^{(i)}+\theta_0)) = Loss_h(z) = \left\{
 \begin{aligned}
@@ -33,22 +37,64 @@ $Loss_h(y^{(i)}(\theta.x^{(i)}+\theta_0)) = Loss_h(z) = \left\{
 1-z, z<1
 \end{aligned}
 \right.$  
-
 __signed distance to boundary__ $\frac{y^{(i)}(\theta.x^{(i)}+\theta_0)}{||\theta||}$. Margins are $\frac{1}{||\theta||}$ away from boundary.  
+__Regularization__ Mamimize margin: $max\frac{1}{||\theta||} \Rightarrow min \frac{1}{2}||\theta||^2$  
 __objective function__ $J(\theta,\theta_0) = \frac{1}{n}\Sigma_{i=1}^nLoss_h(y^{(i)}(\theta.x^{(i)}+\theta_0)) + \frac{\lambda}{2}||\theta||^2$  
+__Support Vector Machine__ In realizable case, find $\theta,\theta_0$ that minimizes $\frac{1}{2}||\theta||^2$ subject to $y^{(i)}(\theta.x^{(i)}+\theta_0)\ge1, i=1,...,n$
 
-\textcolor{blue}{\textbf{Non linear classifiers or regression}}  
-Map examples into feature vectors non linearly and apply a linear method on the resulting vectors.
+\textcolor{blue}{\textbf{Non linear classification}}  
+Map examples into feature vectors non linearly and apply a linear method on the resulting vectors. $x\rightarrow\phi(x)$  
+Non linear classification: $h(x;\theta,\theta_0)=sign(\theta.\phi(x)+\theta_0)$  
+__Kernels__  
+We can turn the linear methods into kernel methods by casting the computations in terms of inner products.  
+$K(X,X') = \Phi(X).\Phi(X')$ inner product of feature vectors.  
+__Kernel Composition Rules__ if K1(x,x') and K2(x,x') are kernel functions, $\left\{
+\begin{aligned}
+f(x)K1(x,x')f(x')\\
+K1(x,x')+K2(x,x')\\
+K1(x,x')K2(x,x')
+\end{aligned}
+\right.$ are also kernels.  
+__Kernel Perceptron Algorithm__  
+$\theta=\theta_0=0.$ if $y^{(i)}(\theta.\phi(x^{(i)})+\theta_0)\le0$ then $\left\{
+\begin{aligned}
+\theta=\theta+y^{(i)}\phi(x^{(i)})\\
+\theta_0=\theta_0+y^{(i)}
+\end{aligned}
+\right.
+$  
+If $\alpha_i$ is the number of mistakes, $\theta=\Sigma_{j=1}^n\alpha_iy^{(i)}\phi(x^{(i)})$, $\theta_0=\Sigma_{j=1}^n\alpha_iy^{(i)}$.  
+__Radial Basis Kernel__ (infinite dimensional) $K(x,x') = exp(-\frac{1}{2}||x-x'||^2)$  
 
-## Optimization algorithms
 
-**Stochastic gradient descent** $\theta \leftarrow \theta - \eta_t\nabla_\theta[Loss_h(y^{(i)}\theta.x^{(i)})+\frac{\lambda}{2}||\theta||^2]$
 
-## Kernels
-We can turn the linear methods into kernel methods by casting the computations in terms of inner products.
-if K1(x,x') and K2(x,x') are kernel functions, f(x)K1(x,x')f(x'), K1(x,x')+K2(x,x'), K1(x,x')K2(x,x') are also kernels.  
-_radial Basis Kernel_ (infinite dimensional) $K(x,x') = exp(-\frac{1}{2}||x-x'||^2)$
+\textcolor{blue}{\textbf{Gradient Descent}}  
+__Stochastic gradient descent__ $\theta \leftarrow \theta - \eta_t\nabla_\theta[Loss_h(y^{(i)}(\theta.x^{(i)}+\theta_0))+\frac{\lambda}{2}||\theta||^2]$. Use 1 example instead of all at each iteration.  
+__Learning Rate__ $\eta$. $\eta_t=\frac{1}{1+t}$ to decrease learning rate with time.  
 
-## Feed forward neural networks
+
+\textcolor{green}{\textbf{Regression}}  
+  
+\textcolor{blue}{\textbf{Linear Regression}}  
+__Empirical Risk__ $R_n(\theta)=\frac{1}{n}\Sigma_{i=1}^n(y^{(i)}-\theta.x^{(i)})^2$ (squared error)  
+Gradient based approach: Initialize $\theta=0$, randomly pick i, update $\theta=\theta+\eta(y^{(i)}-\theta.x^{(i)})x^{(i)}$  
+__Closed Form Solution__ $A=\frac{1}{n}\Sigma_{i=1}^nx^{(i)}(x^{(i)})^T, B=\frac{1}{n}\Sigma_{i=1}^ny^{(i)}x^{(i)}, \hat\theta=A^{-1}B$  
+Closed form in matrix notation: $\hat\theta=(X^TX)^{-1}X^TY$  
+__Ridge Regression__  Loss function: $J_{\lambda,n}=Rn(\theta)+\frac{\lambda}{2}||\theta||^2$  
+Gradient based approach: Initialize $\theta=0$, randomly pick i, update $\theta=(1-\eta\lambda)\theta+\eta(y^{(i)}-\theta.x^{(i)})x^{(i)}$  
+
+\textcolor{green}{\textbf{Recommender Systems}}  
+We are given a sparse matrix where each row corresponds to a user rating and each column to a movie. The goal is to predict missing values.  
+__K-Nearest Neighbor Method__ Let KNN(a) be the set o K users similar to user a, and sim(a,b) a similarity measure.  
+$\hat Y_{ai}=\frac{\Sigma_{b\in KNN(a)}sim(a,b)Y_{bi}}{\Sigma_{b\in KNN(a)}sim(a,b)}$  
+
+\textcolor{green}{\textbf{Clustering}}  
+
+\textcolor{green}{\textbf{Neural Networks}}  
+__Non linear function__ tanh or Relu (max(0,x)).  
+__Softmax function__ $\sigma(z_i)=\frac{e^{z_i}}{\Sigma_{j=1}^ne^{z_j}}$  
+__Feed Forward Networks__  
+__Recurring Neural Networks__  
+__LSTM Long Short Term Memory Network__  
 
 
