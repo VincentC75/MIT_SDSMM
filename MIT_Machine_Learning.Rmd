@@ -12,5 +12,43 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-**Linear Classifiers**  
-_Perceptron Algorithm_ $\theta=\theta_0=0.$ if $y_i(\theta.x_i)\le0$ then $\theta=\theta+y_ix_i, \theta_0=\theta_0+y_i$  
+\textcolor{blue}{\textbf{Linear Classifier}}  
+$h(X;\theta,\theta_0) = sign(\theta.X+\theta_0)$  
+Decision boundary $X.\theta+\theta_0 = 0$  
+If $y^{i}(\theta.X^{(i)}+\theta_0) >0$ for all i, then examples are linearly separable.  
+__Perceptron Algorithm__  
+$\theta=\theta_0=0.$ if $y^{(i)}(\theta.X^{(i)}+\theta_0)\le0$ then $\left\{
+\begin{aligned}
+\theta=\theta+y^{(i)}X^{(i)}\\
+\theta_0=\theta_0+y^{(i)}
+\end{aligned}
+\right.
+$  
+
+\textcolor{blue}{\textbf{Large Margin Optimization}}  
+__Hinge Loss__  
+$Loss_h(y^{(i)}(\theta.x^{(i)}+\theta_0)) = Loss_h(z) = \left\{
+\begin{aligned}
+0, z\ge1\\
+1-z, z<1
+\end{aligned}
+\right.$  
+
+__signed distance to boundary__ $\frac{y^{(i)}(\theta.x^{(i)}+\theta_0)}{||\theta||}$. Margins are $\frac{1}{||\theta||}$ away from boundary.  
+__objective function__ $J(\theta,\theta_0) = \frac{1}{n}\Sigma_{i=1}^nLoss_h(y^{(i)}(\theta.x^{(i)}+\theta_0)) + \frac{\lambda}{2}||\theta||^2$  
+
+\textcolor{blue}{\textbf{Non linear classifiers or regression}}  
+Map examples into feature vectors non linearly and apply a linear method on the resulting vectors.
+
+## Optimization algorithms
+
+**Stochastic gradient descent** $\theta \leftarrow \theta - \eta_t\nabla_\theta[Loss_h(y^{(i)}\theta.x^{(i)})+\frac{\lambda}{2}||\theta||^2]$
+
+## Kernels
+We can turn the linear methods into kernel methods by casting the computations in terms of inner products.
+if K1(x,x') and K2(x,x') are kernel functions, f(x)K1(x,x')f(x'), K1(x,x')+K2(x,x'), K1(x,x')K2(x,x') are also kernels.  
+_radial Basis Kernel_ (infinite dimensional) $K(x,x') = exp(-\frac{1}{2}||x-x'||^2)$
+
+## Feed forward neural networks
+
+
