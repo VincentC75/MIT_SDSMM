@@ -3,14 +3,13 @@
 Personal Notes for the MIT Statistics and Data Science Micromasters
 https://micromasters.mit.edu/ds/
 
-The goal is to prepare documents that can be used during the exams.  
+The goal is to prepare cheatsheets that can be used during the exams.  
 
 Markdown References:
 
 * [R Markdown Cheat Sheet](https://rstudio.github.io/cheatsheets/html/rmarkdown.html)
 * [Markdown latex](https://rpruim.github.io/s341/S19/from-class/MathinRmd.html)
 * [Latex Mathematical symbols](https://www.caam.rice.edu/~heinken/latex/symbols.pdf)
-
 
 Math:
 
