@@ -10,6 +10,7 @@ Markdown References:
 * [R Markdown Cheat Sheet](https://rstudio.github.io/cheatsheets/html/rmarkdown.html)
 * [Markdown latex](https://rpruim.github.io/s341/S19/from-class/MathinRmd.html)
 * [Latex Mathematical symbols](https://www.caam.rice.edu/~heinken/latex/symbols.pdf)
+* [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
 
 Math:
 
