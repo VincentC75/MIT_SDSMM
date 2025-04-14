@@ -1,7 +1,7 @@
 ---
 title: "MIT SDS Capstone part 2 - Machine Learning CheatSheet"
 
-#author: "Vincent Courtois"
+author: "Vincent Courtois"
 geometry: "left=0.5cm,right=0.5cm,top=1cm,bottom=0.5cm"
 output:
   pdf_document: default
@@ -52,7 +52,8 @@ __Support Vector Machine__ In realizable case, find $\theta,\theta_0$ that minim
 Map examples into feature vectors non linearly and apply a linear method on the resulting vectors. $x\rightarrow\phi(x)$  
 Non linear classification: $h(x;\theta,\theta_0)=sign(\theta.\phi(x)+\theta_0)$  
 __Kernels__  
-We can turn the linear methods into kernel methods by casting the computations in terms of inner products.  
+We can turn the linear methods into kernel methods by casting the computations in terms of inner products. dot product is cheap to compute.  
+Example: $\phi(x)=[x_1,x_2,x_1^2,\sqrt2x_1x_2,x_2^2]^T), \phi(x).\phi(x')=(x.x')+(x.x')^2$ expressed only in terms of $x.x'$  
 $K(X,X') = \Phi(X).\Phi(X')$ inner product of feature vectors.  
 __Kernel Composition Rules__ if K1(x,x') and K2(x,x') are kernel functions, $\left\{
 \begin{aligned}
@@ -93,17 +94,105 @@ Gradient based approach: Initialize $\theta=0$, randomly pick i, update $\theta=
 We are given a sparse matrix where each row corresponds to a user rating and each column to a movie. The goal is to predict missing values.  
 __K-Nearest Neighbor Method__ Let KNN(a) be the set o K users similar to user a, and sim(a,b) a similarity measure.  
 $\hat Y_{ai}=\frac{\Sigma_{b\in KNN(a)}sim(a,b)Y_{bi}}{\Sigma_{b\in KNN(a)}sim(a,b)}$  
-
-\textcolor{green}{\textbf{Clustering}}  
+__Similarity Measures__ Euclidian distance: $||x_a-x_b||$, Cosine similarity $cos \theta=\frac{x_a.x_b}{||x_a||.||x_b||}$  
+__Collaborative Filtering__  
+$X=UV^T$, D=set of (a,i) for which a user rating $Y_{ai}$ exists  
+Objective function: $J(X)=\Sigma_{(a,i)\in D}\frac{1}{2}(Y_{ai}-[UV^T]_{ai})^2+\frac{\lambda}{2}(\Sigma_{a,k}U_{a,k}^2+\Sigma_{a,k}V_{i,k}^2)$  
+Alternating Minimization Approach: initialize U (or V) and minimize the objective function with respect to V (or U). Plug-in the result back to the objective function and optimize with repect to V (or U). Repeat until no change in the objective function.
 
 \textcolor{green}{\textbf{Neural Networks}}  
-__Non linear function__ tanh or Relu (max(0,x)).  
+A unit in a neural network computes a non-linear weighted combination of its inputs $f(z)$ where $z=w_0+\Sigma_{i=1}^dx_iw_i$  
+__Non linear function__ $tanh(z)=\frac{e^z-e^{-z}}{e^z+e^{-z}}=1+\frac{2}{e^{2z}+1}$ or Relu $max\{0,z\}$ allows linear separation.  
+__Deep (feedfoward )Neural Network__ contains hidden layer(s) between input and output layer.  
 __Softmax function__ $\sigma(z_i)=\frac{e^{z_i}}{\Sigma_{j=1}^ne^{z_j}}$  
 __Feed Forward Networks__  
-__Recurring Neural Networks__  
+Gradient Descent: $\frac{\partial L}{\partial w_1}=\frac{\partial f_1}{\partial w_1}\frac{\partial L}{\partial f_1}$  
+
+* $b_j^l$ is the bias of the jth neuron in the lth layer
+* $a_j^l$ is the activation of the jth neuron of the lth layer
+* $w_{jk}^l$ is the weight for the connection from the kth neuron in the (l-1)th layer to the jth neuron in the lth layer.  
+* $f$ is the activation function
+* $a_j^l = f(\Sigma_k w_{jk}^la_k^{(l-1)}+b_j^l)$
+
+__Recurrent Neural Networks__  
+
+* input is received at each layer (vs only at input layer for feedforward)
+* The number of layers varies and depend on the length of the sentence
+* Parameter of each layer are shared
+* problem: the gradients can vanish or explode
+
 __LSTM Long Short Term Memory Network__  
 
-**Markov chains**  
+* forget gate: $f_t = sigmoid(w^{f,h}h_{t-1}+w^{f,x}x_t)$
+* input gate: $i_t = sigmoid(w^{i,h}h_{t-1}+w^{i,x}x_t)$ 
+* output gate: $o_t = sigmoid(w^{o,h}h_{t-1}+w^{o,x}x_t)$
+* memory cell: $c_t = f_t \odot c_{t-1}+i_t \odot tanh(w^{c,h}h_{t-1}+w^{c,x}x_t)$
+* visible state: $h_t=o_t \odot tanh(c_t)$
+
+__Markov Model__  
+Prediction of the work by product of conditional probabilities: $\hat p(w'|w) = \frac{count(w,w')}{\Sigma_w(count(w,\tilde w))}$  
+Feed forward networks are more extendable than Markov models  
+Complexity of kth order is $O(|v|^k)$
+
+__Convolutional Neural Networks__
+
+Alternate convolution and pooling layers. With pooling object detection is not location dependent.  
+__Convolution__ $(f*g)(t) = \int_{-\infty}^\infty f(\tau)g(t-\tau)d\tau$ Amount of overlap of f as shifted over g.  
+__Cross Correlation__ $(f*g)(t) = \int_{-\infty}^\infty f(\tau)g(t+\tau)d\tau$.  
+__Pooling__ Separates what is in the image from wwhere it is in the image.  
+__Image Quantization__ Restrict the amount of colours we can use in the image.  
+
+\newpage
+\textcolor{green}{\textbf{Unsupervised Learning}}
+
+\textcolor{blue}{\textbf{Clustering}}
+
+Training set has no label  
+Input: feature vetors and number of clusters K, Output: A partition of indices into K sets $C1,...C_k$, a representative for each partition
+Cost: Sum the cost of each cluster $Cost = \Sigma_{j=1}^KCost(C_j) = \Sigma_{j=1}^K\Sigma_{i \in C_j}||x^{(i)}-z_j||^2$  
+__K-Means Algorithm__
+
+1. Randomly select $z_1,...,z_K$
+1. Iterate (a) Given z, assign each point to the closest z, (b) Given the clusters, find the best representatives.  
+Limitations: Depends heavily on initialisation, works only with euclidian distance, manual choice of K, nor robust to outliers, does not scale well with dimansions.  
+Complexity: $O(nkd)$  
+  
+__K-Medoids__ Variation where representatives are selected among observed values.  
+Complexity: $O(n^2kd)$  
+__Hard vs soft Clustering__ Hard: every element belongs strictly to one partition, Soft: Every point has a probability of belonging to each cluster.  
+
+\textcolor{blue}{\textbf{Generative Models}}
+Model the probability distribution of each class, as opposed to discriminative models which learn a decision boundary between each class.  
+
+__Multinomial model__  
+Generates documents. Fixed vocabulary W. Generates one word at a time. $\theta$ is the model parameter.  
+$p(w|\theta)=\theta_w. \theta_w >=0, \Sigma_{w\in W}\theta_w=1$  
+Likelihood function:  $p(D|\theta)=\Pi_{i=1}^n\theta_{w_i}=\Pi_{w\in W}\theta_w^{count(w)}$  
+Maximum Likelihood estimate: $\tilde \theta_w=\frac{count(w)}{\Sigma_{w' \in W}count(w')}$  
+$log\frac{P(y=+|D)}{P(y=-|D)}=log\frac{P(D|\theta^+)P(y=+)}{P(D|\theta^-)P(y=-)}=\Sigma_{w \in W}count(w)\tilde\theta_w+\tilde\theta_0$ with $\hat\theta_w=log\frac{\theta^+_w}{\theta^-_w}, \hat\theta_0=log\frac{p(y=+)}{p(y=-)}$
+
+__Gaussian Generative Model__  
+$x \in \mathbb{R}^d$.  
+Likelihood: $P(x|\mu,\sigma^2)=N(X,\mu,\sigma^2I)=\frac{1}{(2\pi\sigma^2)^{d/2}}exp(-\frac{1}{2\sigma^2}[[X-\mu||^2)$  
+MLE: $\hat\mu=\frac{1}{n}\Sigma_{i=1}^nX^{(i)}, \sigma^2=\frac{1}{nd}\Sigma_{i=1}^n||X^{(i)}-\mu||^2$  
+
+\textcolor{blue}{\textbf{Mixture Models}}  
+Soft Clustering Model  
+K gaussian mixture components $\mathcal{N}(x,\mu^{(j)},\sigma^2_j), j=1,...,K$  
+K mixture weights $p1,...p^K, \Sigma_{j=1}^Kp_j=1$  
+$P(X|\theta)=\Sigma_{j=1}^Kp_jN(X,\mu^{(j)},\sigma^2_j)$  
+__Expectation Maximization algorithm__
+Depends on initialization, converges locally. Can use K-Means to initialize assignment and global variance.  
+Randomly initialize $\theta$ cluster probabilities $p_i$, means $\mu_i$ and variances $\sigma^2_i$. Iterate until convergence:  
+
+1. *E-Step*: Probability point i belongs to cluster j: $p(j|i) = \frac{p_j\mathcal{N}(x^{(i)},\mu^{(j)},\sigma^2_jI)}{p(X|\theta)}$  
+1. *M-Step*: $\hat n_j=\Sigma_{i=1}^np(j|i)$, $\hat p_j=\frac{\hat n_j}{n}$, $\hat \mu^{(j)}=\frac{1}{\hat n_j}\Sigma_{i=1}^np(j|i)x^{(i)}$, $\hat \sigma^2_j=\frac{1}{\hat n_jd}\Sigma_{i=1}^np(j|i)||x^{(i)}-\mu^{(j)}||^2$
+
+\newpage
+\textcolor{green}{\textbf{Reinforcement Learning}}  
+
+\textcolor{blue}{\textbf{Markov Chains}}  
+
 _Markov property_: The future only depend on the current state, not the past.  
 $r_{ij}(n) = \sum_{k=1}^m r_{ik}(n-1)p_{kj}$  
 state i is _recurrent_ if starting from i and from wherever you go the is a path back to i. Otherwise state is _transient_.  
@@ -111,4 +200,30 @@ _Recurrent class_: collection of recurrent states communicating only between eac
 The states in a recurrent class are _periodic_ if they can be grouped into d>1 groups so that all transitions from one group lead to the next group. Cannot be periodic if there are self transitions.  
 Convergence to steady state probabilities if all recurrent states are in a single class and this class is not periodic.  
 _Balance equations_: $\pi_j = \sum_{k=1}^m \pi_k p_{kj}$.  
+
+\textcolor{blue}{\textbf{Markov Decision Processes - Bellman Equations}}  
+__Value Function__ $V^*(s)$ expected reward starting at state s and acting optimally.  
+$Q^*(s,a)$ expected reward starting at state s, taking action a and then acting optimally.  
+
+$V^*(s) = max_a Q^*(s,a) = Q^*(s,\pi^*(s))  = max_a[\Sigma_{s'}T(s,a,s')(R(s,a,s')+\gamma V^*(s'))]$  
+$Q^*(s,a)= \Sigma_{s'} T(s,a,s')(R(s,a,s') +\gamma V^*(s'))$
+__Value iteration Algorithm__ 
+
+Let $V_k^*(s)$ be the expected reward from state s after k steps.
+
+1. Initialize $V^*(s) = 0$
+1. Iterate until $V_k^*(s) \simeq V_{k+1}^*(s), \forall s$, $V_{k+1}^*(s) = max_a[\Sigma_{s'}T(s,a,s')(R(s,a,s')+\gamma V^*(s'))]$
+1. Compute $Q^*(s,a)$ an $\pi^*(s,a)=argmax_a Q^*(s,a)$  
+
+__Q-Value iteration Algorithm__  
+$Q^*_{k+1}(s,a) = \Sigma_{s'} T(s,a,s')(R(s,a,s')+\gamma max_{s'}Q^*_k(s',a))$
+
+\textcolor{blue}{\textbf{Reinforcement Learning}}  
+In MDP, S,A,T and R are given. In Reinforcement Learning only S and A are given.
+
+1. initialize $Q(s,a)=0, \forall s,a$ 
+1. Iterate until convergence
+
+* (a) Collect sample: $s,a,s', R(s,a,s')$
+* (b) Update $Q_{i+1}(s,a) = \alpha[R(s,a,s') + \gamma.max_{a'}Q_i(s',a')] + (1-\alpha)Q_i(s,a) = Q_i(s,a) + \alpha[R(s,a,s') + \gamma.max_{a'}Q_i(s',a') - Q_i(s,a)]$
 
