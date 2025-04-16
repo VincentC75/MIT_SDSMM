@@ -103,7 +103,7 @@ Alternating Minimization Approach: initialize U (or V) and minimize the objectiv
 \textcolor{green}{\textbf{Neural Networks}}  
 A unit in a neural network computes a non-linear weighted combination of its inputs $f(z)$ where $z=w_0+\Sigma_{i=1}^dx_iw_i$  
 __Non linear function__ $tanh(z)=\frac{e^z-e^{-z}}{e^z+e^{-z}}=1+\frac{2}{e^{2z}+1}$ or Relu $max\{0,z\}$ allows linear separation.  
-__Deep (feedfoward )Neural Network__ contains hidden layer(s) between input and output layer.  
+__Deep (feedfoward) Neural Network__ contains hidden layer(s) between input and output layer.  
 __Softmax function__ $\sigma(z_i)=\frac{e^{z_i}}{\Sigma_{j=1}^ne^{z_j}}$  
 __Feed Forward Networks__  
 Gradient Descent: $\frac{\partial L}{\partial w_1}=\frac{\partial f_1}{\partial w_1}\frac{\partial L}{\partial f_1}$  
@@ -159,7 +159,8 @@ Complexity: $O(nkd)$
   
 __K-Medoids__ Variation where representatives are selected among observed values.  
 Complexity: $O(n^2kd)$  
-__Hard vs soft Clustering__ Hard: every element belongs strictly to one partition, Soft: Every point has a probability of belonging to each cluster.  
+__Hard vs soft Clustering__  
+Hard: every element belongs strictly to one partition, Soft: Every point has a probability of belonging to each cluster.  
 
 \textcolor{blue}{\textbf{Generative Models}}
 Model the probability distribution of each class, as opposed to discriminative models which learn a decision boundary between each class.  
@@ -202,11 +203,13 @@ Convergence to steady state probabilities if all recurrent states are in a singl
 _Balance equations_: $\pi_j = \sum_{k=1}^m \pi_k p_{kj}$.  
 
 \textcolor{blue}{\textbf{Markov Decision Processes - Bellman Equations}}  
+MDP: <S,A,T,R> = <State, Action, Transition probability, Reward> are known.  
+_Policy_ $\pi^*(s) = argmax_a Q^*(s,a)$: Best action that leads to maximum expected reward.  
 __Value Function__ $V^*(s)$ expected reward starting at state s and acting optimally.  
 $Q^*(s,a)$ expected reward starting at state s, taking action a and then acting optimally.  
 
 $V^*(s) = max_a Q^*(s,a) = Q^*(s,\pi^*(s))  = max_a[\Sigma_{s'}T(s,a,s')(R(s,a,s')+\gamma V^*(s'))]$  
-$Q^*(s,a)= \Sigma_{s'} T(s,a,s')(R(s,a,s') +\gamma V^*(s'))$
+$Q^*(s,a)= \Sigma_{s'} T(s,a,s')(R(s,a,s') +\gamma V^*(s'))= \Sigma_{s'} T(s,a,s')(R(s,a,s') +\gamma max_{a'}Q(s',a'))$  
 __Value iteration Algorithm__ 
 
 Let $V_k^*(s)$ be the expected reward from state s after k steps.
@@ -216,10 +219,10 @@ Let $V_k^*(s)$ be the expected reward from state s after k steps.
 1. Compute $Q^*(s,a)$ an $\pi^*(s,a)=argmax_a Q^*(s,a)$  
 
 __Q-Value iteration Algorithm__  
-$Q^*_{k+1}(s,a) = \Sigma_{s'} T(s,a,s')(R(s,a,s')+\gamma max_{s'}Q^*_k(s',a))$
+$Q^*_{k+1}(s,a) = \Sigma_{s'} T(s,a,s')(R(s,a,s')+\gamma max_{a'}Q^*_k(s',a'))$
 
 \textcolor{blue}{\textbf{Reinforcement Learning}}  
-In MDP, S,A,T and R are given. In Reinforcement Learning only S and A are given.
+In MDP, <S,A,T,R> are given. In Reinforcement Learning only <S,A> are given, T (transition probability) and R (Reward) are learned by experiment.  
 
 1. initialize $Q(s,a)=0, \forall s,a$ 
 1. Iterate until convergence
